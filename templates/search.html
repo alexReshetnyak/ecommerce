@@ -1,0 +1,27 @@
+<div id="searchPageWrap">
+	<h1>Результаты поиска</h1>
+	<div class="products">
+    {{#if products}}
+	    {{#each products}}
+			<div class="product" data='{{id}}'>
+				<a class="productImage" href="http://ecommercewebsite.site11.com/#{{menucategory}}/{{goodscategory}}/{{id}}" style="background-image: url({{image}});" alt="{{name}}"></a>
+				<div class="productDescription">
+					<a class="productName" href="http://ecommercewebsite.site11.com/#{{menucategory}}/{{goodscategory}}/{{id}}">{{name}}</a>
+					{{#if availability}}
+						<div class="productAvailable">Есть в наличии</div>
+					{{else}}
+						<div class="productAbsent">Нет в наличии</div>
+					{{/if}}
+				</div>
+				<div class="productBuyWrap">
+					{{#if availability}}
+						<div class="buttonBuy" data="{{id}}">Купить</div>
+					{{/if}}
+				</div>
+			</div>
+	    {{/each}}
+    {{else}}
+    	<h1>"Ничего не найдено"</h1>
+    {{/if}}
+	</div>
+</div>

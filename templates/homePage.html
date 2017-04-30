@@ -1,0 +1,135 @@
+﻿<div id="homePageWrap">
+	<div class="homePageSliders">
+		<div class="homePageSlider1">
+			<div class="homeSliderHeader">
+				<div class="buttonLeftWrap">
+					<img src="img/sliderbuttonleft.png" alt="" width="12" height="25">
+				</div
+				><div class="headerTextWrap">
+					<div class="headerText">ПОПУЛЯРНЫЕ ТОВАРЫ</div>
+					<ul>
+						<li data="1" class="active"></li>
+						<li data="2"></li>
+						<li data="3"></li>
+						<li data="4"></li>
+					</ul>
+				</div
+				><div class="buttonRightWrap">
+					<img src="img/sliderbuttonright.png" alt="" width="12" height="25">
+				</div>
+			</div>
+			<div class="slidsWrap">
+				{{#each slider1}}
+					<div class="sliderSlide">
+						{{#each this}}
+							<div class="product">
+								<a class="imageWrap" href="http://ecommercewebsite.site11.com/#{{menucategory}}/{{goodscategory}}/{{id}}">
+									<div class="image" style="background-image: url({{image}});"></div>
+					    			<div class="name">{{name}}</div>
+					    		</a>
+					    		<div class="priceWrap">
+					    			<div class="price">{{price}} UAH</div>
+					    			<div class="buttonBuy" data="{{id}}">Купить</div>
+					    		</div>
+					    	</div>
+					    {{/each}}
+					</div>
+				{{/each}}
+			</div>
+		</div
+		><div class="homePageSlider2">
+			<div class="homeSliderHeader">
+				<div class="buttonLeftWrap">
+					<img src="img/sliderbuttonleft.png" alt="" width="12" height="25">
+				</div
+				><div class="headerTextWrap">
+					<div class="headerText">МЫ РЕКОМЕНДУЕМ</div>
+					<ul>
+						<li data="1" class="active"></li>
+						<li data="2"></li>
+						<li data="3"></li>
+						<li data="4"></li>
+					</ul>
+				</div
+				><div class="buttonRightWrap">
+					<img src="img/sliderbuttonright.png" alt="" width="12" height="25">
+				</div>
+			</div>
+			<div class="slidsWrap">
+				{{#each slider2}}
+					<div class="sliderSlide2">
+						{{#each this}}
+							<div class="product">
+								<a class="imageWrap" href="http://ecommercewebsite.site11.com/#{{menucategory}}/{{goodscategory}}/{{id}}">
+									<div class="image" style="background-image: url({{image}});"></div>
+					    			<div class="name">{{name}}</div>
+					    		</a>
+					    		<div class="priceWrap">
+					    			<div class="price">{{price}} UAH</div>
+					    			<div class="buttonBuy" data="{{id}}">Купить</div>
+					    		</div>
+					    	</div>
+					    {{/each}}
+					</div>
+				{{/each}}
+			</div>
+		</div>
+	</div>
+	<div class="homePageAlsoBuy">
+		<h2>А ЕЩЕ У НАС ПОКУПАЮТ</h2>
+		<div class="alsogoods">
+			<a class="alsoProduct" href="http://ecommercewebsite.site11.com/#electronics/phones">
+				<div class="alsoImage" style="background-image: url(img/smartphone_163x163.jpeg)"></div>
+				<div class="alsoText">Смартфоны</div>
+			</a>
+			<a class="alsoProduct" href="http://ecommercewebsite.site11.com/#furniture/cushionedfurniture">
+				<div class="alsoImage" style="background-image: url(img/thumb__163x163.jpeg)"></div>
+				<div class="alsoText">Диваны</div>
+			</a>
+			<a class="alsoProduct" href="http://ecommercewebsite.site11.com/#toys/prams">
+				<div class="alsoImage" style="background-image: url(img/thumbauto_163x163.jpeg)"></div>
+				<div class="alsoText">Автокресла</div>
+			</a>
+			<a class="alsoProduct" href="http://ecommercewebsite.site11.com/#householdProducts/small">
+				<div class="alsoImage" style="background-image: url(img/vacuumcleaner.jpg)"></div>
+				<div class="alsoText">Пылесосы</div>
+			</a>
+			<a class="alsoProduct" href="http://ecommercewebsite.site11.com/#houseAppliances/dishes">
+				<div class="alsoImage" style="background-image: url(img/pan.jpg)"></div>
+				<div class="alsoText">Сковородки</div>
+			</a>
+			<a class="alsoProduct" href="http://ecommercewebsite.site11.com/#gardenProducts/gardenTools">
+				<div class="alsoImage" style="background-image: url(img/lopata3.jpg)"></div>
+				<div class="alsoText">Садовый инвентарь</div>
+			</a>
+			<a class="alsoProduct" href="http://ecommercewebsite.site11.com/#autoProducts/tools">
+				<div class="alsoImage" style="background-image: url(img/autoproductstools.jpg)"></div>
+				<div class="alsoText">Автоинструменты</div>
+			</a>
+		</div>
+	</div>
+	<div class="houseAppliancesHp">
+		<div class="houseAppliancesHead">Товары для дома</div>
+		<a href="http://ecommercewebsite.site11.com/#houseAppliances" class="houseAppliancesImage">
+			<div class="button">Посмотреть</div>
+		</a>
+	</div>
+	<div class="homePageDedescription">
+		<h1>Интернет-магазин «Ecommerce»</h1>
+		<h2>Комфортный выбор товара</h2>
+		<div class="text">Жизнь современного человека трудно вообразить без современной электроники, красивой мебели, удобной одежды, украшений и пр. Мы стараемся окружить себя комфортом, но часто при поиске качественного и доступного по цене товара в интернете можно запросто потеряться. Воспользуйтесь каталогом интернет-магазина «Ecommerce» и мы уверены что Вы легко найдете то что Вам нужно. Вы всегда можете расчитывать на вежливое обслуживание.
+		</div>
+		<h2>Большой ассортимент товара при небольшой стоимости</h2>
+		<div class="text">Всё что Вам необходимо, будь то например мебель для дома, офиса или дачи интернет-магазин Ecommerce может помочь Вам.
+
+Количество представленной продукции увеличивается практически каждый день. На нашем сайте Вы сможете посмотреть предложения отсортировав товары выбрав «Хиты продаж» или сэкономить деньги и выбрать сортировку товаров по цене.
+		</div>
+		<h2>Почему наши клиенты выбирают наш магазин</h2>
+		<div class="text">Покупать у нас  удобно и выгоднр. Мы стараемся не нагружать Вас лишней информацией и в первую очередь показуе самые важные данные о товаре. К каждому товару прилагается качественное фото его внешнего вида.
+
+Оплата товаров может быть выполнена наличными при получении. К безналичному расчету принимаются банковские карты Visa, MasterCard и Maestro.
+
+Доставка ваших заказов осуществляется удобной транспортной компанией по Украине. Забрать покупку можно из пункта выдачи или получить посылку от курьера прямо дома. Мы даем официальные гарантии качества представленных товаров.
+		</div>
+	</div>
+</div>

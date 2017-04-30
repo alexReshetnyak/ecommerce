@@ -1,0 +1,19 @@
+<div class="adminAddNewProduct btn btn-success">
+	Добавить товар в этот раздел
+</div>
+{{#each goods}}
+	<div class="adminPanelProduct" data="{{id}}">
+		<a href="http://ecommercewebsite.site11.com/#{{menucategory}}/{{goodscategory}}/{{id}}">
+			<img src="{{image}}" alt="{{name}}" height="">
+		</a>
+		<div class="adminPanelProductName">
+			{{name}}
+		</div>
+		<div class="adminPanelProductInfo">
+			<img src="/img/closeIcon.png" alt="delete" data="{{id}}" class="adminDeleteProduct">
+			<div class="productId">ID товара: {{id}}</div>
+			<div class="productAvailability">Наличие товара: {{availability}}</div>
+			<div class="productPrice">Цена: {{price}}UAH</div>
+		</div>
+	</div>
+{{/each}}

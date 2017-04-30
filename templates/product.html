@@ -1,0 +1,76 @@
+﻿<div id="productPageWrap">
+	<h2>{{name}}</h2>
+	<div id="productPage">
+		<div class="imageSlide">
+			<div class="imageMiddle" data="0" style="background-image: url({{imagesMiddleFirst}});">
+			</div>
+			<div class="imageSmallWrap">
+				{{#each images}}
+					<div class="imageSmall" style="background-image: url({{small}});" alt="{{../name}}"></div>
+				{{/each}}
+			</div>
+		</div>
+		<div class="productPriceWrap">
+			<div class="productPrice">{{price}} UAH</div>
+			{{#if availability}}
+				<div class="productBuy" data="{{id}}">Купить</div>
+			{{else}}
+				<div class="productAbsent" >Нет в наличии</div>
+			{{/if}}
+			<div class="deliveries">
+				Способ доставки: 
+				<a href="https://novaposhta.ua/"><img height="65" src="/img/novaposhta.png" alt="Новая Почта"></a>
+				<a href="http://ukrposhta.ua/"><img height="65" src="/img/ukrposhta.png" alt="УкрПочта"></a>
+				<a href="https://intime.ua/"><img height="65" src="/img/intime.jpg" alt="Интайм"></a>
+			</div>
+		</div>
+	</div>
+	<div class="productBigImageBlock">
+		<div class="productBigImageWrap">
+			<div class="productBigImageWrapTop">
+				<div class="productBigImage" style="background-image: url({{imagesBigFirst}});">
+				</div><div class="productBigImageExit"></div>
+			</div>
+			<div class="productBigImageWrapBottom">
+				<div class="bigImageSmallWrapBefor"></div>
+				<div class="bigImageSmallWrap">
+					{{#each images}}
+						<div class="bigImageSmall" style="background-image: url({{small}});" alt="{{../name}}"></div>
+					{{/each}}
+				</div>
+				<div class="productBigImageBuyWrap">
+					{{#if availability}}
+						<div class="productBigImageBuy" data="{{id}}">Купить</div>
+					{{else}}
+						<div class="productBigImageAbsent">Нет в наличииs</div>
+					{{/if}}
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="productDescriptionWrap">	
+		<div class="productDescriptionTab">
+			<h3>Характеристики: {{name}}</h3>
+			<table>
+				{{#each specifications}}
+					<tr>
+						<th>{{name}}</th>
+					</tr>
+					{{#each description}}
+						<tr>
+							<td>{{name}}</td>
+							<td>{{value}}</td>
+						</tr>
+					{{/each}}
+				{{/each}}
+			</table>
+		</div>
+		<div class="productDescription">
+			{{#if description}}
+				<h3>Описание</h3>
+				{{description}}
+			{{/if}}
+		</div>
+	</div>
+</div>	

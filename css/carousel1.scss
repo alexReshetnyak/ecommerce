@@ -1,0 +1,84 @@
+$green: #009812;
+$fullWidth: 990px;
+
+.container-fluid{
+	padding: 0;
+	min-width: 1020px;
+
+	#myCarouselWrap{
+		background: $green;
+
+		#myCarousel{
+			width: $fullWidth;
+			margin: auto;
+
+			.carousel-inner{
+	 			height: 35px !important;
+
+	 			.item{ 
+				    text-align: center;
+				    height: 35px !important;
+				    font-size: 20px;
+				    color: white;
+				    vertical-align: bottom;
+
+				    .carousel-caption{
+						padding-bottom: 0;
+						top:0;
+						padding: 0;
+
+						p {
+							margin: 4px 0 0 0;
+							font-size: 20px;
+							height: 30px;
+							line-height: 30px;
+
+							img{
+								margin-bottom: 5px;
+							}
+						}
+					}
+				}
+			}
+		}			
+		.carousel{
+		    margin-top: 0px;
+		}
+
+		.carousel-control.left {
+		    background-image: linear-gradient(to right, transparent 0%, transparent 100%);
+		    background-repeat: repeat-x;
+		    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
+		}
+
+		.carousel-control.right {
+		    left: auto;
+		    right: 0;
+		    background-image: linear-gradient(to right, transparent 0%, transparent 100%);
+		    background-repeat: repeat-x;
+		    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
+		}
+
+		.carousel-control{
+			border: 2px solid white;
+			width: 15px;
+			height: 15px;
+			top: 10px;
+			transform: rotate(45deg);
+
+			.glyphicon-chevron-left, .glyphicon-chevron-right {
+				top: 0;
+			}
+		}
+
+		.left{
+			border-right-color: transparent;
+			border-top-color: transparent; 
+		}
+
+		.right{
+			border-left-color: transparent;
+			border-bottom-color: transparent; 
+		}
+	}
+}

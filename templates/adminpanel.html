@@ -1,0 +1,18 @@
+<div id="adminPanelWrap">
+	<div class="selectSection">
+		<h3>Выберите раздел</h3>
+		<form name='selectSection'>
+			<select id="selectSection" class="form-control" name="selectSection">
+				{{#each sections}}
+					<option value="{{name}}">{{secondname}}</option>
+				{{/each}}
+			</select>
+			<div id='selectSectionButton' class="btn btn-success">Выбрать</div>
+		</form>
+	</div>
+	<div class="selectCategory">		
+	</div>
+	<div class="adminPanelGoods">
+	</div>
+</div>
+

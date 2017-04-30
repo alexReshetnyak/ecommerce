@@ -1,0 +1,9 @@
+<h3>Выберите категорию</h3>
+<form name="selectCategory">
+	<select class='form-control' id="selectCategoty" name="selectCategory">
+		{{#each categories}}
+			<option value="{{secondname}}">{{name}}</option>
+		{{/each}}
+	</select>
+	<div id='selectCategoryButton' class="btn btn-success">Выбрать</div>
+</form>

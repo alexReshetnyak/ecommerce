@@ -1,0 +1,17 @@
+﻿{{#each products}}
+	<a class="product" href="#{{menucategory}}/{{goodscategory}}/{{id}}">
+		 <div class="imageWrap">
+		 	<img src="{{image}}" width="" alt="{{name}}">
+		 </div>
+		 <div class="price">
+		 	<span>{{price}} UAH</span>
+		 	{{#if availability}}
+		 		<div class="buy" data="{{id}}">Купить</div>
+		 	{{else}}
+		 		<div class = "absent">Нет в наличии</div>
+		 	{{/if}}
+		 </div>
+		 <div style="clear: both"></div>
+		 <span class="name">{{name}}</span>
+	</a>
+{{/each}}
