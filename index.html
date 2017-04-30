@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=990">
+	<title>E commerce</title>
+   <!-- <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">-->
+    <link href='http://ecommercewebsite.site11.com/img/favicon.ico?t=123124' rel='icon' type='image/x-icon'/>
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.css">
+	<link rel="stylesheet" href="css/carousel1.css">
+    <link rel="stylesheet" href="css/index.css">
+
+	<script
+			  src="https://code.jquery.com/jquery-3.1.1.min.js"
+			  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+			  crossorigin="anonymous">
+	</script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.maskedinput.min.js"></script>
+    <script src="js/director.min.js"></script>
+    <script src="js/handlebars.js"></script>
+	<script src="js/bootstrap.js"></script>
+    <script src="js/homepage.js"></script>
+    <script src="js/basket.js"></script>
+    <script src="js/formbuy.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/menuelement.js"></script>
+    <script src="js/goodslist.js"></script>
+    <script src="js/product.js"></script>
+    <script src="js/thankyou.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/adminpanel.js"></script>
+    <script src="js/newproduct.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>  
+	<div class="container-fluid">
+        <!-- Карусель -->
+        <div id="myCarouselWrap">
+        	<div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel"> 
+    	        <!-- Слайды карусели -->
+    	        <div class="carousel-inner">
+    	          <!-- Слайды создаются с помощью контейнера с классом item, внутри которого помещается содержимое слайда -->
+    	         	<div class="active item">
+    	         	  <div class="carousel-caption">
+    	         	    <p>Бесплатные доставка и самовывоз</p>
+    	         	  </div>
+    	         	</div>
+    	          <!-- Слайд №2 -->
+    	            <div class="item">
+    	              <p>Оплачивать заказы стало проще! Платите любым удобным способом <img height="20" src="img/payments-bann.png" alt="Способы оплаты"></p>
+    	            </div>
+    	        </div>
+    	        <!-- Навигация для карусели -->
+    	        <!-- Кнопка, осуществляющая переход на предыдущий слайд с помощью атрибута data-slide="prev" -->
+    	        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+    	          <span class="glyphicon glyphicon-chevron-left"></span>
+    	        </a>
+    	        <!-- Кнопка, осуществляющая переход на следующий слайд с помощью атрибута data-slide="next" -->
+    	        <a class="carousel-control right" href="#myCarousel" data-slide="next">
+    	          <span class="glyphicon glyphicon-chevron-right"></span>
+    	        </a>
+    	    </div>
+    	</div>
+    </div>
+    <header>
+        <div id="header-phone">
+            <div id="header-phone-city">Харьков</div><br>
+            <div id="header-phone-number">+38 (099) 483-61-75</div>
+        </div>
+        <a href="http://ecommercewebsite.site11.com/#basket" id="header-basket">
+            <div id="basketCountOfProducts"></div>
+            <img src="img/basket.png" height="24" alt="Корзина"> Корзина <span id="basketOrders"></span>
+        </a>
+    </header>
+    <div id="premenuWrap">
+        <div id="premenu">
+            <a href="#"><div id="mainlogo"><img src="img/mainlogo.png" height="40" alt="Домой"></div></a>
+            <div id="search">
+                <img src="img/searchlogo.png" height="24" alt="Значек поиска">
+                <input id="searchInput" type="text" placeholder="Поиск среди товаров">
+                <button id="searchButton">Найти</button>
+            </div>
+        </div>
+    </div>
+    <div id="menuWrap">
+        <div id="menu">
+            <div id="menu-furniture">
+                <a href="#furniture">
+                    <div id="menu-furniture-button" href="/furniture">
+                         <div class="menu-logo">
+                             <img src="img/sofalogo.png" height="40" alt="Мебель">
+                         </div>
+                         <div class="menu-text">МЕБЕЛЬ</div>
+                    </div>
+                </a>
+                <ul>
+                </ul>
+            </div>
+            <div id="menu-houseAppliances">
+                <a href="#houseAppliances">
+                    <div id="menu-houseAppliances-button">
+                        <div class="menu-logo">
+                            <img src="img/kittlelogo.png" height="40" alt="Товары для дома">
+                        </div>
+                        <div class="menu-text">ТОВАРЫ <br> ДЛЯ ДОМА</div>
+                    </div>
+                </a>
+                <ul>
+                </ul>
+            </div>
+            <div id="menu-electronics">
+                <a href="#electronics">
+                    <div id="menu-electronics-button">
+                        <div class="menu-logo">
+                            <img src="img/laptoplogo2.png" height="40" alt="Электроника">
+                        </div>
+                        <div class="menu-text">ЭЛЕКТРОНИКА</div>
+                    </div>
+                </a>
+                <ul>
+                </ul>
+            </div>
+            <div id="menu-clothes">
+                <a href="#clothes">
+                    <div id="menu-clothes-button">
+                        <div class="menu-logo">
+                            <img src="img/shirtlogo.png" height="40" alt="Одежда">
+                        </div>
+                        <div class="menu-text">ОДЕЖДА</div>
+                    </div>
+                </a>
+                <ul>
+                </ul>
+            </div>
+            <div id="menu-householdProducts">
+                <a href="#householdProducts">
+                    <div id="menu-householdProducts-button">
+                       <div class="menu-logo">
+                           <img src="img/laundrylogo.png" height="40" alt="Бытовая техника">
+                       </div>
+                        <div class="menu-text">БЫТОВАЯ <br> ТЕХНИКА</div>
+                    </div>
+                </a>
+                <ul>
+                </ul>
+            </div>
+            <div id="menu-autoProducts">
+                <a href="#autoProducts">
+                    <div id="menu-autoProducts-button">
+                       <div class="menu-logo">
+                           <img src="img/autologo.png" height="40" alt="Товары для авто">
+                       </div>
+                        <div class="menu-text">ТОВАРЫ <br> ДЛЯ АВТО</div>
+                    </div>
+                </a>
+                <ul>
+                </ul>
+            </div>
+            <div id="menu-sport">
+                <a href="#sport">
+                    <div id="menu-sport-button">
+                       <div class="menu-logo">
+                           <img src="img/bikelogo.png" height="40" alt="Спорт и лого">
+                       </div>
+                        <div class="menu-text">СПОРТ <br> И ОТДЫХ</div>
+                    </div>
+                </a>
+                <ul>
+                </ul>
+            </div>
+            <div id="menu-toys">
+                <a href="#toys">
+                    <div id="menu-toys-button">
+                       <div class="menu-logo">
+                           <img src="img/toylogo.png" height="40" alt="Детские товары">
+                       </div>
+                        <div class="menu-text">ДЕТСКИЕ<br>ТОВАРЫ</div>
+                    </div>
+                </a>
+                <ul>
+                </ul>
+            </div>
+            <div id="menu-gardenProducts">
+                <a href="#gardenProducts">
+                    <div id="menu-gardenProducts-button">
+                       <div class="menu-logo">
+                           <img src="img/rakelogo.png" height="40" alt="Товары для дачи">
+                       </div>
+                        <div class="menu-text">ТОВАРЫ <br> ДЛЯ ДАЧИ</div>
+                    </div>
+                </a>
+                <ul>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="routerOutletWrap">
+        <div id="routerOutlet">
+        </div>
+    </div>
+    <div class="productInBasketWrap">
+        <div>
+            <div class="productInBasket">
+                Товар добавлен в корзину!
+            </div>
+        </div>
+    </div>
+    <div id="loaderImage"></div>
+    <div id="arrowUp"></div>
+    <footer>
+    	<div class="rights">2017 E commerce®. Все права защищены.</div>
+    </footer>
+</body>
+</html>
