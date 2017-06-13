@@ -1,8 +1,11 @@
-function Search (routerOutlet, newHandlebars) {
+import {basket} from './index.js';
+
+export default function Search (routerOutlet, newHandlebars) {
+
 	this._newHandlebars = newHandlebars;
 	this._routerOutlet = routerOutlet;
 	this._template;
-	self._searchWords = "";
+	this._searchWords = "";
 	this._inputField = document.querySelector('#searchInput');
 	this._inputButton = document.querySelector('#searchButton');
 	this._addListeners();
@@ -12,10 +15,12 @@ function Search (routerOutlet, newHandlebars) {
 						   });
 }
 
+
 Search.prototype._addListeners = function(){
 	var self = this;
 	this._inputButton.addEventListener('click', function (event){
 		self._searchWords = self._inputField.value;
+
 		$.ajax({
 		 	type: "POST",
 		 	url: "/php/controller.php",
@@ -24,15 +29,18 @@ Search.prototype._addListeners = function(){
 		 	success: self._showResults.bind(self)
 		   });
 	});
+
 	this._inputField.addEventListener('keyup', function (event){
 		if (event.key === "Enter") {
 			self._searchWords = self._inputField.value;
+
 		    $.ajax({
 		     	type: "POST",
 		     	url: "/php/controller.php",
 		     	data: ({"task": "search", "words": self._searchWords}),
 		     	dataType: "json",
 		     	success: self._showResults.bind(self)
+
 		    });
 		}
 	});
@@ -62,16 +70,14 @@ Search.prototype._showResults = function(dataFromServer){
 	});
 }
 
+
 Search.prototype._addListenerToProduct = function(){
 	var self = this;
 	this._searchPageDiv = document.querySelector('#searchPageWrap');
 	this._searchPageDiv.onclick = function (event) {		
 		if (event.target.classList.contains('buttonBuy')) {
 			var id = event.target.getAttribute('data');
-			window.app.basket.addElementToBasket(id);
+			basket.addElementToBasket(id);
 		}
 	}
-};
-
-window.app = window.app || {};
-window.app.Search = window.app.Search || Search;
+}

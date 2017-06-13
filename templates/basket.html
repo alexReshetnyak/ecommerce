@@ -1,23 +1,26 @@
 <div id="basketPageWrap">
-	<h1>Корзина</h1>
-	<div class="products">
+	<h1 class="text-left">Корзина</h1>
+	<div class="products text-left">
 		{{#each products}}
 			<div class="product" data='{{id}}'>
-				<a class="productImage" href="http://enter/#{{menucategory}}/{{goodscategory}}/{{id}}" style="background-image: url({{image}});" alt="{{name}}"></a>
-				<div class="productDescription">
-					<a class="productName" href="http://enter/#{{menucategory}}/{{goodscategory}}/{{id}}">{{name}}</a>
-					<div class="productAvailable">Есть в наличии</div>
-				</div>
-				<div class="productPriceWrap">
+				<div class="col-md-8 col-xs-12">
+					<a class="productImage" href="http://ecommerce.ho.ua/#{{menucategory}}/{{goodscategory}}/{{id}}" style="background-image: url({{image}});" alt="{{name}}"></a>
+					<div class="productDescription">
+						<a class="productName" href="http://ecommerce.ho.ua/#{{menucategory}}/{{goodscategory}}/{{id}}">{{name}}</a>
+						<div class="productAvailable">Есть в наличии</div>
+					</div>
+				</div>				
+				<div class="productPriceWrap col-md-4 col-xs-12">
 					<div class="productDelete" data="{{id}}"></div>
 					<div class="productPrice">{{price}} UAH</div>
 				</div>
+				<div style="clear: both;"></div>
 			</div>
 		{{/each}}
 		<div class="totalSum">
 			Сумма заказа: <span><div class="price">0</div> UAH</span>
 		</div>
-		<a href="http://ecommercewebsite.site11.com/#formbuy" class="buttonCheckOrder">Оформить заказ</a>
+		<a href="http://ecommerce.ho.ua/#formbuy" class="buttonCheckOrder">Оформить заказ</a>
 	</div>
 	<div class="emptyBusket">
 		<div class="emptyBusketImage"></div

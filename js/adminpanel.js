@@ -1,20 +1,37 @@
-function AdminPanel (routerOutlet, newHandlebars) {
+import NewProduct from './newproduct.js';
+
+export default function AdminPanel (routerOutlet, newHandlebars) {
 	this._newHandlebars = newHandlebars;
 	this._routerOutlet = routerOutlet;
 	this._template;
 	this._templateSelectCategory;
 	this._templateGoods;
+
 	this._selectCategoryDiv;
 	this._goodsListDiv;
+	
 	this._selectButtonSection;
 	this._selectButtonCategory;
 	this._adminAddNewProductBtn;
+
 	this._activeSection;
 	this._activeCategory;
+
+	this._promiseTemplate;
+	this._promiseTemplateCategory;
+	this._promiseTemplateGoodsList;
+}
+
+
+
+AdminPanel.prototype.render = function(){
+
+	window.scrollTo(0,0);
 	this._promiseTemplate = $.ajax({
 							type: "POST",
 							url: "/templates/adminpanel.html"
 						   });
+
 	this._promiseTemplateCategory = $.ajax({
 							type: "POST",
 							url: "/templates/selectcategory.html"
@@ -23,10 +40,7 @@ function AdminPanel (routerOutlet, newHandlebars) {
 							type: "POST",
 							url: "/templates/adminpanelgoods.html"
 						   });
-}
 
-AdminPanel.prototype.render = function(){
-	window.scrollTo(0,0);
 	function getCookie(name) {
         var matches = document.cookie.match(new RegExp(
           "(?:^|; )" + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + "=([^;]*)"
@@ -44,13 +58,16 @@ AdminPanel.prototype.render = function(){
 		 	success: this._renderAdminPanel.bind(this)
 		   });
     }else{
-    	document.location = "http://ecommercewebsite.site11.com/#login";
+    	document.location = "http://ecommerce.ho.ua//#login";
     }
 }
 
 AdminPanel.prototype._renderAdminPanel = function(data){
+
 	var self = this;
+
 	if(data === 'admin'){
+
 		this._promiseTemplate.then(function (datatemplate){
 			self._template = datatemplate;
 
@@ -64,11 +81,15 @@ AdminPanel.prototype._renderAdminPanel = function(data){
 			});	
 		});
 	}else{
-		document.location = "http://ecommercewebsite.site11.com/#login";
+		document.location = "http://ecommerce.ho.ua//#login";
 	}
+
 }
 
+
+
 AdminPanel.prototype._getSections = function(){
+
 	$.ajax({
 		 	type: "POST",
 		 	url: "/php/controller.php",
@@ -78,22 +99,26 @@ AdminPanel.prototype._getSections = function(){
 		   });
 };
 
+
+
 AdminPanel.prototype._getCategory = function(dataFromServer){
+
 	this._selectSections = dataFromServer;
 	var self = this;
 
 	var dataObject = {
 		sections: this._selectSections
 	};
+
 	this._routerOutlet.innerHTML = this._newHandlebars(this._template, dataObject);
 	this._selectCategoryDiv = this._routerOutlet.querySelector('.selectCategory');
 	this._goodsListDiv = this._routerOutlet.querySelector('.adminPanelGoods');
 	this._selectButtonSection = this._routerOutlet.querySelector('#selectSectionButton');
 	this._selectSection = this._routerOutlet.querySelector('#selectSection');
 
-
 	this._selectButtonSection.addEventListener('click', function (event) {
 		self._activeSection = document.forms.selectSection.elements.selectSection.value;
+
 		$.ajax({
 		 	type: "POST",
 		 	url: "/php/controller.php",
@@ -104,12 +129,16 @@ AdminPanel.prototype._getCategory = function(dataFromServer){
 	});	
 }
 
+
 AdminPanel.prototype._getGoods = function(dataFromServer){
+
 	this._selectCategories = dataFromServer;
 	var self = this;
+
 	var dataObject = {
 		categories: this._selectCategories
 	};
+
 	this._selectCategoryDiv.innerHTML = this._newHandlebars(this._templateSelectCategory, dataObject);
 	this._selectButtonCategory = this._routerOutlet.querySelector('#selectCategoryButton');
 	this._selectCategory = this._routerOutlet.querySelector('#selectCategory');
@@ -126,10 +155,14 @@ AdminPanel.prototype._getGoods = function(dataFromServer){
 	});	
 }
 
+
+
 AdminPanel.prototype._renderGoodsList = function(dataFromServer){
+
 	this._goodsFromServer = dataFromServer || [];
 	this._selectCategories = dataFromServer;
 	var self = this;
+
 	for (var i = 0; i < this._goodsFromServer.length; i++) {
 		var image = JSON.parse(this._goodsFromServer[i]["images"])[0];
 		if (image) {
@@ -138,6 +171,7 @@ AdminPanel.prototype._renderGoodsList = function(dataFromServer){
 			console.log('no image id:', this._goodsFromServer[i]["id"]);
 		}
 	}
+
 	var dataObject = {
 		goods: this._goodsFromServer
 	};
@@ -146,13 +180,15 @@ AdminPanel.prototype._renderGoodsList = function(dataFromServer){
 	this._addListeners();
 }
 
+
+
 AdminPanel.prototype._addListeners = function(){
 	var self = this;
 	this._adminAddNewProductBtn = this._goodsListDiv.querySelector('.adminAddNewProduct');
 
 	this._adminAddNewProductBtn.onclick = function(event){
-		window.app.newProduct = window.app.newProduct || new window.app.NewProduct(self._routerOutlet, self._newHandlebars);
-		window.app.newProduct.render(self._activeSection, self._activeCategory);
+		var newProduct = new NewProduct(self._routerOutlet, self._newHandlebars);
+		newProduct.render(self._activeSection, self._activeCategory);
 	}
 
 	this._goodsListDiv.onclick = function (event){
@@ -165,7 +201,10 @@ AdminPanel.prototype._addListeners = function(){
 	}
 }
 
+
+
 AdminPanel.prototype._deleteProduct = function(id){
+
 	var imagesArray = [];
 	for (var i = 0; i < this._goodsFromServer.length; i++) {
 		if (this._goodsFromServer[i]['id'] === id){
@@ -176,6 +215,7 @@ AdminPanel.prototype._deleteProduct = function(id){
 			}
 		}
 	}
+
 	var images = JSON.stringify(imagesArray);
 	$.ajax({
 		 	type: "POST",
@@ -186,13 +226,13 @@ AdminPanel.prototype._deleteProduct = function(id){
 		});
 }
 
+
+
 AdminPanel.prototype._showMessage = function(id, response){
+
 	if (response) {
 		$('.adminPanelProduct[data='+ id + ']').fadeOut(500);
 	}else{
 		console.log('Ошибка при удалении продукта', 'server response: ' + response);
 	}	
 }
-
-window.app = window.app || {};
-window.app.AdminPanel = window.app.AdminPanel || AdminPanel;

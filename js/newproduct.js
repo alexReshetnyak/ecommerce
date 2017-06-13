@@ -1,4 +1,4 @@
-function NewProduct (routerOutlet, newHandlebars) {
+export default function NewProduct (routerOutlet, newHandlebars) {
 	this._newHandlebars = newHandlebars;
 	this._routerOutlet = routerOutlet;
 	this._template;
@@ -19,14 +19,16 @@ function NewProduct (routerOutlet, newHandlebars) {
 	this.__productDescription;
 	this.__productSpecification;
 	this.__productAvailability;
-	this._promiseTemplate = $.ajax({
-							type: "POST",
-							url: "/templates/newproduct.html"
-						   });
+	this._promiseTemplate;
 }
 
 NewProduct.prototype.render = function(section, category){
 	window.scrollTo(0,0);
+	this._promiseTemplate = $.ajax({
+							type: "POST",
+							url: "/templates/newproduct.html"
+						   });
+
 	var self = this;
 	this._section = section;
 	this._category = category;
@@ -73,9 +75,9 @@ NewProduct.prototype._addSpecification = function(event){
 	for (var i = 0; i < countTitleSpecification; i++) {
 		templateTitleSpecification += '<input type="text" class="inputCountTitle" placeholder="количество свойств вкатегории ' + (1 + i) + '">';
 	}
+
 	templateTitleSpecification += '<div class = "btn btn-success countOptionsButton">Выбрать</div>';
 	this._divWrapForSpecification.innerHTML = templateTitleSpecification;
-
 	this._divWrapForSpecification.onclick =  function(event){
 		if (event.target.classList.contains('countOptionsButton')) {
 			var templateSpecification = '';
@@ -100,6 +102,7 @@ NewProduct.prototype._addNewProduct = function(event){
 	this._productDescription =  this._textareaAddDescription.value;
 	this._productSpecification = [];
 
+
 	var specificationDivs = this._divWrapForSpecification.querySelectorAll('.specificationBlock');
 	if (specificationDivs) {
 		for (var i = 0; i < specificationDivs.length; i++) {
@@ -107,7 +110,7 @@ NewProduct.prototype._addNewProduct = function(event){
 	    	var titleInput = specificationDivs[i].querySelector('.inputTitleSpecification');
 	    	var specificationNameInputs = specificationDivs[i].querySelectorAll('.inputSpecificationName');
 	    	var specificationCountInputs = specificationDivs[i].querySelectorAll('.inputSpecificationCount');
-	    	
+
 	    	var description = [];
 	    	if (specificationNameInputs.length === specificationCountInputs.length) {
 	    		for (var j= 0; j < specificationNameInputs.length; j++) {
@@ -129,6 +132,7 @@ NewProduct.prototype._addNewProduct = function(event){
 	this._saveImagesOnServer();
 }
 
+
 NewProduct.prototype._saveImagesOnServer = function(){
 
     var imageArray = this._formImages.querySelectorAll('.inputImage');
@@ -137,7 +141,7 @@ NewProduct.prototype._saveImagesOnServer = function(){
 		var image = imageArray[i].files[0];
 		data.append('image' + i, image);
 	}
-	
+
 	$.ajax({
         url: "/php/controller.php",
         type: 'POST',
@@ -161,6 +165,7 @@ NewProduct.prototype._saveNewProduct = function(imagesPath){
 	    		var linkSmall = this._imagesPath[i].replace(re, "/img/mysql/goods/");
 	    		obj.small = linkSmall;
 	    	}
+
 	    	if (this._imagesPath[i+1]){
 	    		var linkBig = this._imagesPath[i+1].replace(re, "/img/mysql/goods/");
 	    		obj.big = linkBig;
@@ -189,12 +194,14 @@ NewProduct.prototype._saveNewProduct = function(imagesPath){
 		 	        "availability": this._productAvailability,
 		 	        "name": this._productName
 		 	    }),
+
 		 	dataType: "json",
 		 	success: this._showMessage.bind(this)
 		   });
 }
 
 NewProduct.prototype._showMessage = function(dataFromServer){
+
 	if (dataFromServer){
 		var messageDivWrap = $('.productInBasketWrap');
 		var messageDiv = $('.productInBasket');
@@ -203,8 +210,8 @@ NewProduct.prototype._showMessage = function(dataFromServer){
 			setTimeout(function() {
 				messageDivWrap.fadeOut(500, function () {
 					messageDiv.html('Товар добавлен в корзину!');
-					window.location = 'http://ecommercewebsite.site11.com/#adminpanel/1';
-					window.location = 'http://ecommercewebsite.site11.com/#adminpanel';
+					window.location = 'http://ecommerce.ho.ua/#adminpanel/1';
+					window.location = 'http://ecommerce.ho.ua/#adminpanel';
 				});
 			}, 1000);
 		});
@@ -212,6 +219,3 @@ NewProduct.prototype._showMessage = function(dataFromServer){
 		console.log('ошибка при добавлении товара');
 	}
 }
-
-window.app = window.app || {};
-window.app.NewProduct = window.app.NewProduct || NewProduct;

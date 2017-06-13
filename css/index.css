@@ -63,34 +63,46 @@
 /*----------------------------------------------------------------------------------------*/
 a {
   text-decoration: none;
-  color: black
-  /* ╨ж╨▓╨╡╤В ╤Б╤Б╤Л╨╗╨╛╨║ */ }
+  color: black;
+  /* Цвет ссылок */ }
 
 a:visited {
   text-decoration: none;
-  color: black
-  /* ╨ж╨▓╨╡╤В ╨┐╨╛╤Б╨╡╤Й╨╡╨╜╨╜╤Л╤Е ╤Б╤Б╤Л╨╗╨╛╨║ */ }
+  color: black;
+  /* Цвет посещенных ссылок */ }
 
 a:link {
   text-decoration: none;
-  color: black
-  /* ╨ж╨▓╨╡╤В ╨┐╨╛╤Б╨╡╤Й╨╡╨╜╨╜╤Л╤Е ╤Б╤Б╤Л╨╗╨╛╨║ */ }
+  color: black;
+  /* Цвет посещенных ссылок */ }
 
 a:hover {
   text-decoration: none;
-  color: black
-  /* ╨ж╨▓╨╡╤В ╨┐╨╛╤Б╨╡╤Й╨╡╨╜╨╜╤Л╤Е ╤Б╤Б╤Л╨╗╨╛╨║ */ }
+  color: black;
+  /* Цвет посещенных ссылок */ }
 
 a:active {
   text-decoration: none;
-  color: black
-  /* ╨ж╨▓╨╡╤В ╨░╨║╤В╨╕╨▓╨╜╤Л╤Е ╤Б╤Б╤Л╨╗╨╛╨║ */ }
+  color: black;
+  /* Цвет активных ссылок */ }
 
 header {
-  width: 990px;
-  height: 45px;
+  min-height: 45px;
   font-family: Roboto2;
-  margin: auto; }
+  margin: auto;
+  vertical-align: top; }
+  header .row {
+    text-align: center;
+    vertical-align: top; }
+  header .header-col {
+    width: 150px;
+    float: none;
+    display: inline-block;
+    text-align: left;
+    vertical-align: top; }
+  header .header-spacer {
+    float: none;
+    display: inline-block; }
   header #header-phone {
     display: inline-block; }
     header #header-phone #header-phone-city {
@@ -102,21 +114,14 @@ header {
       display: inline;
       font-weight: 600; }
   header #header-basket {
-    float: right;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    height: 45px;
+    justify-content: flex-end;
+    height: 40px;
     font-size: 13px;
     font-weight: 300;
     margin-right: 20px;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center; }
+    align-items: center; }
     header #header-basket #basketCountOfProducts {
-      display: inline-block;
       background: #f88a08;
       border-radius: 3px;
       height: 20px;
@@ -130,22 +135,26 @@ header {
 
 #premenuWrap {
   background: black;
-  height: 70px;
+  min-height: 66px;
   color: white;
-  font-family: Roboto2;
-  min-width: 1020px; }
+  font-family: Roboto2; }
   #premenuWrap #premenu {
-    width: 990px;
-    margin: auto; }
-    #premenuWrap #premenu #mainlogo {
-      display: inline-block;
-      line-height: 66px; }
+    margin: auto;
+    text-align: center;
+    line-height: 66px; }
+    #premenuWrap #premenu .row {
+      vertical-align: middle; }
+    #premenuWrap #premenu #mainlogo img {
+      margin-left: 60px; }
+    #premenuWrap #premenu .search-wrap {
+      min-height: 66px;
+      line-height: 66px;
+      vertical-align: middle; }
     #premenuWrap #premenu #search {
       display: inline-block;
-      background: white;
-      margin-left: 80px;
-      border-radius: 3px;
       width: 520px;
+      background: white;
+      border-radius: 3px;
       height: 35px;
       vertical-align: middle;
       line-height: 33px; }
@@ -179,14 +188,13 @@ header {
 
 #menuWrap {
   font-family: roboto2;
-  text-align: center;
-  min-width: 1020px; }
+  text-align: center; }
 
 #menu {
   display: inline-block;
   margin: auto;
   text-align: center;
-  height: 95px;
+  min-height: 95px;
   border-bottom: 2px solid rgba(0, 0, 0, 0.2); }
 
 #menu > div {
@@ -228,9 +236,7 @@ header {
     border: 5px solid black;
     top: -7px;
     left: 47px;
-    -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-            transform: rotate(45deg);
+    transform: rotate(45deg);
     border-bottom-color: transparent;
     border-right-color: transparent; }
 
@@ -249,7 +255,6 @@ header {
 
 #routerOutletWrap #routerOutlet {
   font-family: roboto2;
-  width: 990px;
   min-height: 900px;
   margin: auto;
   margin-bottom: 40px; }
@@ -257,6 +262,9 @@ header {
     height: 100px;
     background: url("../img/loader.gif") no-repeat;
     background-position: 50% 50%; }
+  #routerOutletWrap #routerOutlet #mainelementspage .elements-container {
+    width: 86%;
+    display: inline-block; }
   #routerOutletWrap #routerOutlet #mainelementspage h2 {
     font-size: 22px;
     font-weight: 400; }
@@ -265,8 +273,7 @@ header {
     overflow: hidden;
     position: relative; }
     #routerOutletWrap #routerOutlet #mainelementspage a img {
-      -webkit-transition: 0.4s;
-              transition: 0.4s; }
+      transition: 0.4s; }
     #routerOutletWrap #routerOutlet #mainelementspage a span {
       background: white;
       min-width: 100px;
@@ -280,30 +287,32 @@ header {
   #routerOutletWrap #routerOutlet #mainelementspage a:nth-child(2) {
     width: 640px;
     height: 460px;
-    float: left; }
+    float: left;
+    margin-bottom: 22px;
+    margin-right: 20px; }
     #routerOutletWrap #routerOutlet #mainelementspage a:nth-child(2) img {
       width: 640px;
       height: 460px; }
   #routerOutletWrap #routerOutlet #mainelementspage a:nth-child(3), #routerOutletWrap #routerOutlet #mainelementspage a:nth-child(4) {
     width: 320px;
     height: 216px;
-    margin-left: 28px; }
+    float: left; }
     #routerOutletWrap #routerOutlet #mainelementspage a:nth-child(3) img, #routerOutletWrap #routerOutlet #mainelementspage a:nth-child(4) img {
       width: 320px;
       height: 216px; }
-  #routerOutletWrap #routerOutlet #mainelementspage a:nth-child(4) {
-    margin-top: 22px; }
+  #routerOutletWrap #routerOutlet #mainelementspage a:nth-child(3) {
+    margin-bottom: 22px; }
   #routerOutletWrap #routerOutlet #mainelementspage a:hover img {
-    -webkit-transform: scale(1.05);
-        -ms-transform: scale(1.05);
-            transform: scale(1.05); }
+    transform: scale(1.05); }
   #routerOutletWrap #routerOutlet #mainelementspage .text {
     font-size: 13px;
     font-weight: 400;
     line-height: 14px;
     margin-top: 25px; }
   #routerOutletWrap #routerOutlet #goodslist {
-    position: relative; }
+    position: relative;
+    width: 86%;
+    display: inline-block; }
     #routerOutletWrap #routerOutlet #goodslist h2 {
       font-weight: 400;
       font-size: 24px;
@@ -330,13 +339,11 @@ header {
         position: absolute;
         z-index: 2;
         width: 0px;
-        /* ╨Ч╨░╨┤╨░╨╡╨╝ ╨╜╤Г╨╢╨╜╤Г╤О ╤И╨╕╤А╨╕╨╜╤Г */
+        /* Задаем нужную ширину */
         height: 0px;
-        /* ╨╕ ╨▓╤Л╤Б╨╛╤В╤Г */
+        /* и высоту */
         border: 4px solid transparent;
-        -webkit-transform: scaleY(3);
-            -ms-transform: scaleY(3);
-                transform: scaleY(3);
+        transform: scaleY(3);
         border-bottom-color: rgba(0, 0, 0, 0.6);
         cursor: pointer; }
       #routerOutletWrap #routerOutlet #goodslist #rangeSliderWrap .ui-slider .ui-slider-range {
@@ -370,30 +377,27 @@ header {
     #routerOutletWrap #routerOutlet #goodslist hr {
       border-bottom: 1px solid #e6e6e6; }
     #routerOutletWrap #routerOutlet #goodslist #sortBlock {
-      margin: 20px; }
+      margin: 20px;
+      text-align: left; }
       #routerOutletWrap #routerOutlet #goodslist #sortBlock div {
         border: 1px solid rgba(0, 0, 0, 0.3);
         display: inline-block;
         padding: 2px 10px;
         font-size: 13px;
         border-radius: 3px;
-        -webkit-transition: 0.3s;
-                transition: 0.3s;
+        transition: 0.3s;
         position: relative; }
         #routerOutletWrap #routerOutlet #goodslist #sortBlock div span {
           position: absolute;
           display: inline-block;
           border: 4px solid transparent;
           border-bottom-color: black;
-          -webkit-transform: scaleY(2.1);
-              -ms-transform: scaleY(2.1);
-                  transform: scaleY(2.1);
+          transform: scaleY(2.1);
           top: 4px;
           right: 10px;
-          -webkit-transition: 0.3s;
-                  transition: 0.3s; }
+          transition: 0.3s; }
       #routerOutletWrap #routerOutlet #goodslist #sortBlock div:nth-child(3), #routerOutletWrap #routerOutlet #goodslist #sortBlock div:nth-child(4) {
-        width: 88px; }
+        width: 89px; }
       #routerOutletWrap #routerOutlet #goodslist #sortBlock div:nth-child(4) span {
         border-bottom-color: transparent;
         border-top-color: black;
@@ -407,8 +411,10 @@ header {
       #routerOutletWrap #routerOutlet #goodslist #sortBlock div:last-child:hover span, #routerOutletWrap #routerOutlet #goodslist #sortBlock div:last-child.chekedSortButton span {
         border-bottom-color: transparent;
         border-top-color: white; }
+    #routerOutletWrap #routerOutlet #goodslist #productsList .list-product-wrap {
+      padding: 0; }
     #routerOutletWrap #routerOutlet #goodslist #productsList .product {
-      width: 33.3%;
+      width: 100%;
       height: 370px;
       border: 1px solid #e6e6e6;
       display: inline-block;
@@ -459,165 +465,35 @@ header {
     #routerOutletWrap #routerOutlet #goodslist #productsList .name {
       display: block;
       margin-top: 15px; }
-  #routerOutletWrap #routerOutlet #productPageWrap h2 {
-    font-weight: 400;
-    font-size: 24px;
-    margin: 40px 0; }
-  #routerOutletWrap #routerOutlet #productPageWrap #productPage {
-    border-bottom: 4px solid #e6e6e6;
-    padding-bottom: 30px; }
-    #routerOutletWrap #routerOutlet #productPageWrap #productPage .imageSlide {
-      width: 66%;
-      display: inline-block; }
-      #routerOutletWrap #routerOutlet #productPageWrap #productPage .imageSlide .imageMiddle {
-        width: 450px;
-        height: 450px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-        margin: auto; }
-      #routerOutletWrap #routerOutlet #productPageWrap #productPage .imageSlide .imageMiddle:hover {
-        cursor: -webkit-zoom-in;
-        cursor: zoom-in; }
-      #routerOutletWrap #routerOutlet #productPageWrap #productPage .imageSlide .imageSmallWrap {
-        vertical-align: middle;
-        text-align: center;
-        height: 50px;
-        line-height: 50px; }
-        #routerOutletWrap #routerOutlet #productPageWrap #productPage .imageSlide .imageSmallWrap .imageSmall {
-          vertical-align: middle;
-          text-align: center;
-          line-height: 45px;
-          width: 45px;
-          height: 45px;
-          display: inline-block;
-          border: 1px solid transparent;
-          margin-right: 5px;
+  #routerOutletWrap #routerOutlet #productPageWrap {
+    width: 87%;
+    display: inline-block; }
+    #routerOutletWrap #routerOutlet #productPageWrap h2 {
+      font-weight: 400;
+      font-size: 24px;
+      margin: 40px 0; }
+    #routerOutletWrap #routerOutlet #productPageWrap #productPage {
+      border-bottom: 4px solid #e6e6e6;
+      padding-bottom: 30px;
+      height: 530px; }
+      #routerOutletWrap #routerOutlet #productPageWrap #productPage .imageSlide {
+        display: inline-block;
+        padding: 0; }
+        #routerOutletWrap #routerOutlet #productPageWrap #productPage .imageSlide .imageMiddle {
+          width: 450px;
+          height: 450px;
           background-size: contain;
           background-repeat: no-repeat;
-          background-position: 50% 50%; }
-        #routerOutletWrap #routerOutlet #productPageWrap #productPage .imageSlide .imageSmallWrap .imageSmall:hover, #routerOutletWrap #routerOutlet #productPageWrap #productPage .imageSlide .imageSmallWrap .imageSmallActive {
-          border-color: #FF9F1D;
-          cursor: pointer; }
-    #routerOutletWrap #routerOutlet #productPageWrap #productPage .productPriceWrap {
-      width: 28%;
-      float: right;
-      height: 500px; }
-      #routerOutletWrap #routerOutlet #productPageWrap #productPage .productPriceWrap .productPrice {
-        font-size: 34px;
-        font-weight: 500;
-        margin: 120px 0 10px 0; }
-      #routerOutletWrap #routerOutlet #productPageWrap #productPage .productPriceWrap .productBuy {
-        height: 50px;
-        border-radius: 5px;
-        color: white;
-        background: #FF9F1D;
-        line-height: 50px;
-        vertical-align: middle;
-        text-align: center;
-        font-size: 26px; }
-      #routerOutletWrap #routerOutlet #productPageWrap #productPage .productPriceWrap .productBuy:hover {
-        cursor: pointer;
-        box-shadow: 0 0 2px 0 #FF9F1D; }
-      #routerOutletWrap #routerOutlet #productPageWrap #productPage .productPriceWrap .productAbsent {
-        height: 50px;
-        border-radius: 5px;
-        color: white;
-        background: #FF9F1D;
-        line-height: 50px;
-        vertical-align: middle;
-        text-align: center;
-        font-size: 26px; }
-      #routerOutletWrap #routerOutlet #productPageWrap #productPage .productPriceWrap .productAbsent:hover {
-        cursor: not-allowed;
-        box-shadow: 0 0 2px 0 #FF9F1D; }
-      #routerOutletWrap #routerOutlet #productPageWrap #productPage .productPriceWrap .deliveries {
-        margin-top: 10px;
-        color: rgba(0, 0, 0, 0.6);
-        font-size: 12px; }
-        #routerOutletWrap #routerOutlet #productPageWrap #productPage .productPriceWrap .deliveries a {
-          margin: auto;
-          display: block;
-          height: 70px;
-          text-align: center;
-          margin-top: 10px; }
-  #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock {
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: none; }
-    #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap {
-      width: 900px;
-      height: 90%;
-      background: white;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -webkit-box-direction: normal;
-      -webkit-flex-direction: column;
-          -ms-flex-direction: column;
-              flex-direction: column;
-      margin: auto;
-      margin-top: 2.5%;
-      box-shadow: 0 0 60px 0 black; }
-      #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapTop {
-        height: 93%;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: start;
-        -webkit-align-items: flex-start;
-            -ms-flex-align: start;
-                align-items: flex-start;
-        -webkit-box-pack: justify;
-        -webkit-justify-content: space-between;
-            -ms-flex-pack: justify;
-                justify-content: space-between; }
-        #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapTop .productBigImage {
-          display: inline-block;
-          width: 820px;
-          height: 97%;
-          margin: 2% 0 0 40px;
-          background-size: contain;
-          background-repeat: no-repeat;
-          background-position: 50% 50%; }
-        #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapTop .productBigImageExit {
-          display: inline-block;
-          width: 30px;
-          height: 30px;
-          margin: 5px 5px 0 0;
-          background: url("/img/closeIcon.png");
           background-position: 50% 50%;
-          background-repeat: no-repeat; }
-        #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapTop .productBigImageExit:hover {
-          cursor: pointer; }
-      #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapBottom {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: start;
-        -webkit-align-items: flex-start;
-            -ms-flex-align: start;
-                align-items: flex-start;
-        -webkit-box-pack: justify;
-        -webkit-justify-content: space-between;
-            -ms-flex-pack: justify;
-                justify-content: space-between; }
-        #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapBottom .bigImageSmallWrapBefor {
-          width: 130px; }
-        #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapBottom .bigImageSmallWrap {
+          margin: auto; }
+        #routerOutletWrap #routerOutlet #productPageWrap #productPage .imageSlide .imageMiddle:hover {
+          cursor: zoom-in; }
+        #routerOutletWrap #routerOutlet #productPageWrap #productPage .imageSlide .imageSmallWrap {
           vertical-align: middle;
           text-align: center;
           height: 50px;
           line-height: 50px; }
-          #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapBottom .bigImageSmallWrap .bigImageSmall {
+          #routerOutletWrap #routerOutlet #productPageWrap #productPage .imageSlide .imageSmallWrap .imageSmall {
             vertical-align: middle;
             text-align: center;
             line-height: 45px;
@@ -629,92 +505,201 @@ header {
             background-size: contain;
             background-repeat: no-repeat;
             background-position: 50% 50%; }
-          #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapBottom .bigImageSmallWrap .bigImageSmall:hover, #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapBottom .bigImageSmallWrap .bigImageSmallActive {
+          #routerOutletWrap #routerOutlet #productPageWrap #productPage .imageSlide .imageSmallWrap .imageSmall:hover, #routerOutletWrap #routerOutlet #productPageWrap #productPage .imageSlide .imageSmallWrap .imageSmallActive {
             border-color: #FF9F1D;
-            cursor: pointer;
-            border-radius: 2px; }
-        #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapBottom .productBigImageBuyWrap {
-          width: 130px;
+            cursor: pointer; }
+      #routerOutletWrap #routerOutlet #productPageWrap #productPage .productPriceWrap {
+        height: 500px;
+        padding: 0; }
+        #routerOutletWrap #routerOutlet #productPageWrap #productPage .productPriceWrap .productPrice {
+          font-size: 34px;
+          font-weight: 500;
+          margin: 120px 0 10px 0; }
+        #routerOutletWrap #routerOutlet #productPageWrap #productPage .productPriceWrap .productBuy {
           height: 50px;
-          display: -webkit-box;
-          display: -webkit-flex;
-          display: -ms-flexbox;
-          display: flex; }
-          #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapBottom .productBigImageBuyWrap .productBigImageBuy {
-            display: inline-block;
+          border-radius: 5px;
+          color: white;
+          background: #FF9F1D;
+          line-height: 50px;
+          vertical-align: middle;
+          text-align: center;
+          font-size: 26px; }
+        #routerOutletWrap #routerOutlet #productPageWrap #productPage .productPriceWrap .productBuy:hover {
+          cursor: pointer;
+          box-shadow: 0 0 2px 0 #FF9F1D; }
+        #routerOutletWrap #routerOutlet #productPageWrap #productPage .productPriceWrap .productAbsent {
+          height: 50px;
+          border-radius: 5px;
+          color: white;
+          background: #FF9F1D;
+          line-height: 50px;
+          vertical-align: middle;
+          text-align: center;
+          font-size: 26px; }
+        #routerOutletWrap #routerOutlet #productPageWrap #productPage .productPriceWrap .productAbsent:hover {
+          cursor: not-allowed;
+          box-shadow: 0 0 2px 0 #FF9F1D; }
+        #routerOutletWrap #routerOutlet #productPageWrap #productPage .productPriceWrap .deliveries {
+          margin-top: 10px;
+          color: rgba(0, 0, 0, 0.6);
+          font-size: 12px; }
+          #routerOutletWrap #routerOutlet #productPageWrap #productPage .productPriceWrap .deliveries a {
             margin: auto;
-            margin-left: 20px;
-            width: 80px;
-            height: 25px;
-            background: #FF9F1D;
-            color: white;
-            border-radius: 3px;
-            font-size: 16px;
+            display: block;
+            height: 70px;
             text-align: center;
-            vertical-align: middle;
-            padding-top: 2px; }
-          #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapBottom .productBigImageBuyWrap .productBigImageBuy:hover {
-            cursor: pointer;
-            box-shadow: 0 0 5px 0 #FF9F1D; }
-          #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapBottom .productBigImageBuyWrap .productBigImageAbsent {
+            margin-top: 10px; }
+    #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock {
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      position: fixed;
+      top: 0;
+      left: 0;
+      display: none; }
+      #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap {
+        width: 900px;
+        height: 90%;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        margin-top: 2.5%;
+        box-shadow: 0 0 60px 0 black; }
+        #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapTop {
+          height: 93%;
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between; }
+          #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapTop .productBigImage {
             display: inline-block;
-            margin: auto;
-            margin-left: 0;
-            font-weight: 300;
-            height: 25px;
-            color: grey;
-            font-size: 16px;
-            text-align: center;
+            width: 820px;
+            height: 97%;
+            margin: 2% 0 0 40px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: 50% 50%; }
+          #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapTop .productBigImageExit {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            margin: 5px 5px 0 0;
+            background: url("/img/closeIcon.png");
+            background-position: 50% 50%;
+            background-repeat: no-repeat; }
+          #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapTop .productBigImageExit:hover {
+            cursor: pointer; }
+        #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapBottom {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between; }
+          #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapBottom .bigImageSmallWrapBefor {
+            width: 130px; }
+          #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapBottom .bigImageSmallWrap {
             vertical-align: middle;
-            padding-top: 2px; }
-  #routerOutletWrap #routerOutlet #productPageWrap #productDescriptionWrap {
-    vertical-align: top; }
-    #routerOutletWrap #routerOutlet #productPageWrap #productDescriptionWrap .productDescriptionTab {
-      width: 50%;
-      display: inline-block;
-      float: left;
-      margin-bottom: 50px; }
-      #routerOutletWrap #routerOutlet #productPageWrap #productDescriptionWrap .productDescriptionTab h3 {
-        font-weight: 600;
-        font-size: 18px; }
-      #routerOutletWrap #routerOutlet #productPageWrap #productDescriptionWrap .productDescriptionTab table th {
-        width: 25%;
-        height: 25px;
-        line-height: 25px;
-        font-size: 12px;
-        font-weight: 600; }
-      #routerOutletWrap #routerOutlet #productPageWrap #productDescriptionWrap .productDescriptionTab table td {
-        width: 25%;
-        height: 25px;
-        line-height: 25px;
-        font-size: 12px;
-        font-weight: 300; }
-      #routerOutletWrap #routerOutlet #productPageWrap #productDescriptionWrap .productDescriptionTab table td:first-child {
-        border-bottom: 1px solid gainsboro; }
-    #routerOutletWrap #routerOutlet #productPageWrap #productDescriptionWrap .productDescription {
-      background: #f7f7f7;
-      display: inline-block;
-      width: 46.9%;
-      padding: 10px 20px 20px 20px;
-      margin-left: 30px;
-      margin-top: 20px;
-      margin-bottom: 50px;
-      font-weight: 300;
-      line-height: 22px; }
-      #routerOutletWrap #routerOutlet #productPageWrap #productDescriptionWrap .productDescription h3 {
-        margin: 0;
+            text-align: center;
+            height: 50px;
+            line-height: 50px; }
+            #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapBottom .bigImageSmallWrap .bigImageSmall {
+              vertical-align: middle;
+              text-align: center;
+              line-height: 45px;
+              width: 45px;
+              height: 45px;
+              display: inline-block;
+              border: 1px solid transparent;
+              margin-right: 5px;
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: 50% 50%; }
+            #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapBottom .bigImageSmallWrap .bigImageSmall:hover, #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapBottom .bigImageSmallWrap .bigImageSmallActive {
+              border-color: #FF9F1D;
+              cursor: pointer;
+              border-radius: 2px; }
+          #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapBottom .productBigImageBuyWrap {
+            width: 130px;
+            height: 50px;
+            display: flex; }
+            #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapBottom .productBigImageBuyWrap .productBigImageBuy {
+              display: inline-block;
+              margin: auto;
+              margin-left: 20px;
+              width: 80px;
+              height: 25px;
+              background: #FF9F1D;
+              color: white;
+              border-radius: 3px;
+              font-size: 16px;
+              text-align: center;
+              vertical-align: middle;
+              padding-top: 2px; }
+            #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapBottom .productBigImageBuyWrap .productBigImageBuy:hover {
+              cursor: pointer;
+              box-shadow: 0 0 5px 0 #FF9F1D; }
+            #routerOutletWrap #routerOutlet #productPageWrap .productBigImageBlock .productBigImageWrap .productBigImageWrapBottom .productBigImageBuyWrap .productBigImageAbsent {
+              display: inline-block;
+              margin: auto;
+              margin-left: 0;
+              font-weight: 300;
+              height: 25px;
+              color: grey;
+              font-size: 16px;
+              text-align: center;
+              vertical-align: middle;
+              padding-top: 2px; }
+    #routerOutletWrap #routerOutlet #productPageWrap #productDescriptionWrap {
+      vertical-align: top; }
+      #routerOutletWrap #routerOutlet #productPageWrap #productDescriptionWrap .productDescriptionCol {
         padding: 0;
-        font-weight: 600;
-        font-size: 18px;
-        margin-bottom: 20px; }
+        display: inline-block; }
+      #routerOutletWrap #routerOutlet #productPageWrap #productDescriptionWrap .productDescriptionTab {
+        width: 485px;
+        display: inline-block;
+        margin-bottom: 50px; }
+        #routerOutletWrap #routerOutlet #productPageWrap #productDescriptionWrap .productDescriptionTab h3 {
+          font-weight: 600;
+          font-size: 18px; }
+        #routerOutletWrap #routerOutlet #productPageWrap #productDescriptionWrap .productDescriptionTab table th {
+          width: 25%;
+          height: 25px;
+          line-height: 25px;
+          font-size: 12px;
+          font-weight: 600; }
+        #routerOutletWrap #routerOutlet #productPageWrap #productDescriptionWrap .productDescriptionTab table td {
+          width: 25%;
+          height: 25px;
+          line-height: 25px;
+          font-size: 12px;
+          font-weight: 300; }
+        #routerOutletWrap #routerOutlet #productPageWrap #productDescriptionWrap .productDescriptionTab table td:first-child {
+          border-bottom: 1px solid gainsboro; }
+      #routerOutletWrap #routerOutlet #productPageWrap #productDescriptionWrap .productDescription {
+        background: #f7f7f7;
+        display: inline-block;
+        padding: 10px 20px 20px 20px;
+        margin-top: 20px;
+        margin-bottom: 50px;
+        font-weight: 300;
+        line-height: 22px;
+        text-align: left; }
+        #routerOutletWrap #routerOutlet #productPageWrap #productDescriptionWrap .productDescription h3 {
+          margin: 0;
+          padding: 0;
+          font-weight: 600;
+          font-size: 18px;
+          margin-bottom: 20px; }
   #routerOutletWrap #routerOutlet #homePageWrap .homePageSliders {
     margin-top: 30px;
-    width: 100%;
-    height: 540px; }
+    min-height: 540px; }
+    #routerOutletWrap #routerOutlet #homePageWrap .homePageSliders .slider-wrap {
+      width: 495px;
+      padding: 0;
+      float: none;
+      display: inline-block; }
     #routerOutletWrap #routerOutlet #homePageWrap .homePageSliders .homePageSlider1 {
       overflow: hidden;
       display: inline-block;
-      width: 49.5%;
+      width: 490px;
       height: 540px;
       border: 1px solid #C1D837; }
       #routerOutletWrap #routerOutlet #homePageWrap .homePageSliders .homePageSlider1 .homeSliderHeader {
@@ -762,22 +747,13 @@ header {
       #routerOutletWrap #routerOutlet #homePageWrap .homePageSliders .homePageSlider1 .slidsWrap {
         width: 400%;
         height: 485px;
-        -webkit-transition: 0.5s;
-                transition: 0.5s;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
+        transition: 0.5s;
         display: flex; }
         #routerOutletWrap #routerOutlet #homePageWrap .homePageSliders .homePageSlider1 .slidsWrap .sliderSlide {
           height: 100%;
           display: inline-block;
-          display: -webkit-box;
-          display: -webkit-flex;
-          display: -ms-flexbox;
           display: flex;
-          -webkit-flex-wrap: wrap;
-              -ms-flex-wrap: wrap;
-                  flex-wrap: wrap;
+          flex-wrap: wrap;
           width: 25%;
           overflow: hidden; }
           #routerOutletWrap #routerOutlet #homePageWrap .homePageSliders .homePageSlider1 .slidsWrap .sliderSlide .product {
@@ -804,14 +780,8 @@ header {
               width: 220px;
               margin: auto;
               margin-top: 5px;
-              display: -webkit-box;
-              display: -webkit-flex;
-              display: -ms-flexbox;
               display: flex;
-              -webkit-box-pack: justify;
-              -webkit-justify-content: space-between;
-                  -ms-flex-pack: justify;
-                      justify-content: space-between; }
+              justify-content: space-between; }
               #routerOutletWrap #routerOutlet #homePageWrap .homePageSliders .homePageSlider1 .slidsWrap .sliderSlide .product .priceWrap .price {
                 font-size: 20px;
                 font-weight: 400;
@@ -828,11 +798,9 @@ header {
     #routerOutletWrap #routerOutlet #homePageWrap .homePageSliders .homePageSlider2 {
       border: 1px solid #4FCBF4;
       overflow: hidden;
-      float: right;
       display: inline-block;
-      width: 49.5%;
-      height: 540px;
-      margin-left: 6px; }
+      width: 490px;
+      height: 540px; }
       #routerOutletWrap #routerOutlet #homePageWrap .homePageSliders .homePageSlider2 .homeSliderHeader {
         background: #4FCBF4;
         height: 55px;
@@ -878,21 +846,12 @@ header {
       #routerOutletWrap #routerOutlet #homePageWrap .homePageSliders .homePageSlider2 .slidsWrap {
         width: 400%;
         height: 485px;
-        -webkit-transition: 0.5s;
-                transition: 0.5s;
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
+        transition: 0.5s;
         display: flex; }
         #routerOutletWrap #routerOutlet #homePageWrap .homePageSliders .homePageSlider2 .slidsWrap .sliderSlide2 {
           height: 100%;
-          display: -webkit-box;
-          display: -webkit-flex;
-          display: -ms-flexbox;
           display: flex;
-          -webkit-flex-wrap: wrap;
-              -ms-flex-wrap: wrap;
-                  flex-wrap: wrap;
+          flex-wrap: wrap;
           width: 488px;
           overflow: hidden; }
           #routerOutletWrap #routerOutlet #homePageWrap .homePageSliders .homePageSlider2 .slidsWrap .sliderSlide2 .product {
@@ -918,14 +877,8 @@ header {
               width: 220px;
               margin: auto;
               margin-top: 5px;
-              display: -webkit-box;
-              display: -webkit-flex;
-              display: -ms-flexbox;
               display: flex;
-              -webkit-box-pack: justify;
-              -webkit-justify-content: space-between;
-                  -ms-flex-pack: justify;
-                      justify-content: space-between; }
+              justify-content: space-between; }
               #routerOutletWrap #routerOutlet #homePageWrap .homePageSliders .homePageSlider2 .slidsWrap .sliderSlide2 .product .priceWrap .price {
                 font-size: 20px;
                 font-weight: 400;
@@ -939,40 +892,36 @@ header {
                 cursor: pointer;
                 padding: 3px 10px 1px 10px;
                 font-weight: 400; }
-  #routerOutletWrap #routerOutlet #homePageWrap .homePageAlsoBuy h2 {
-    font-size: 18px; }
-  #routerOutletWrap #routerOutlet #homePageWrap .homePageAlsoBuy .alsogoods {
-    margin-top: 30px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center; }
-    #routerOutletWrap #routerOutlet #homePageWrap .homePageAlsoBuy .alsogoods .alsoProduct {
-      width: 144px;
-      min-height: 150px; }
-      #routerOutletWrap #routerOutlet #homePageWrap .homePageAlsoBuy .alsogoods .alsoProduct .alsoImage {
-        margin: auto;
-        width: 90%;
-        height: 100px;
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: 50% 50%;
-        -webkit-transition: 0.3s;
-                transition: 0.3s; }
-      #routerOutletWrap #routerOutlet #homePageWrap .homePageAlsoBuy .alsogoods .alsoProduct .alsoImage:hover {
-        -webkit-transform: scale(1.05, 1.05);
-            -ms-transform: scale(1.05, 1.05);
-                transform: scale(1.05, 1.05); }
-      #routerOutletWrap #routerOutlet #homePageWrap .homePageAlsoBuy .alsogoods .alsoProduct .alsoText {
-        width: 90%;
-        margin: auto;
-        text-align: center;
-        margin-top: 10px; }
+  #routerOutletWrap #routerOutlet #homePageWrap .homePageAlsoBuy {
+    width: 87%;
+    display: inline-block; }
+    #routerOutletWrap #routerOutlet #homePageWrap .homePageAlsoBuy h2 {
+      font-size: 18px; }
+    #routerOutletWrap #routerOutlet #homePageWrap .homePageAlsoBuy .alsogoods {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center; }
+      #routerOutletWrap #routerOutlet #homePageWrap .homePageAlsoBuy .alsogoods .alsoProduct {
+        width: 144px;
+        min-height: 150px; }
+        #routerOutletWrap #routerOutlet #homePageWrap .homePageAlsoBuy .alsogoods .alsoProduct .alsoImage {
+          margin: auto;
+          width: 90%;
+          height: 100px;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: 50% 50%;
+          transition: 0.3s; }
+        #routerOutletWrap #routerOutlet #homePageWrap .homePageAlsoBuy .alsogoods .alsoProduct .alsoImage:hover {
+          transform: scale(1.05, 1.05); }
+        #routerOutletWrap #routerOutlet #homePageWrap .homePageAlsoBuy .alsogoods .alsoProduct .alsoText {
+          width: 90%;
+          margin: auto;
+          text-align: center;
+          margin-top: 10px; }
   #routerOutletWrap #routerOutlet #homePageWrap .houseAppliancesHp {
+    width: 87%;
+    display: inline-block;
     margin-top: 30px;
     margin-bottom: 10px; }
     #routerOutletWrap #routerOutlet #homePageWrap .houseAppliancesHp .houseAppliancesHead {
@@ -998,8 +947,7 @@ header {
         width: 125px;
         color: white;
         background: rgba(54, 146, 216, 0.3);
-        -webkit-transition: 0.3s;
-                transition: 0.3s;
+        transition: 0.3s;
         line-height: 40px;
         text-align: center;
         vertical-align: middle;
@@ -1011,7 +959,9 @@ header {
     background: rgba(0, 0, 0, 0.03);
     padding: 20px 20px;
     color: grey;
-    text-align: center; }
+    text-align: center;
+    width: 87%;
+    display: inline-block; }
     #routerOutletWrap #routerOutlet #homePageWrap .homePageDedescription h1 {
       color: black;
       font-size: 22px;
@@ -1024,7 +974,9 @@ header {
       margin-bottom: 50px;
       white-space: pre-wrap; }
   #routerOutletWrap #routerOutlet #basketPageWrap {
-    margin-top: 40px; }
+    margin-top: 40px;
+    width: 87%;
+    display: inline-block; }
     #routerOutletWrap #routerOutlet #basketPageWrap h1 {
       font-size: 22px;
       font-weight: 500;
@@ -1032,7 +984,7 @@ header {
     #routerOutletWrap #routerOutlet #basketPageWrap .products {
       display: none; }
       #routerOutletWrap #routerOutlet #basketPageWrap .products .product {
-        height: 145px;
+        min-height: 145px;
         margin-top: 40px;
         border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
         #routerOutletWrap #routerOutlet #basketPageWrap .products .product .productImage {
@@ -1047,7 +999,8 @@ header {
         #routerOutletWrap #routerOutlet #basketPageWrap .products .product .productDescription {
           display: inline-block;
           vertical-align: top;
-          margin-left: 20px; }
+          margin-left: 20px;
+          width: 420px; }
           #routerOutletWrap #routerOutlet #basketPageWrap .products .product .productDescription .productName {
             font-size: 18px;
             font-weight: 400;
@@ -1064,8 +1017,7 @@ header {
             margin-top: 10px; }
         #routerOutletWrap #routerOutlet #basketPageWrap .products .product .productPriceWrap {
           display: inline-block;
-          float: right;
-          margin-right: 20px;
+          padding: 0;
           text-align: right; }
           #routerOutletWrap #routerOutlet #basketPageWrap .products .product .productPriceWrap .productDelete {
             display: inline-block;
@@ -1091,9 +1043,7 @@ header {
         #routerOutletWrap #routerOutlet #basketPageWrap .products .totalSum span {
           color: black;
           font-size: 24px;
-          margin-right: 20px;
-          font-weight: 400;
-          margin-right: 20px; }
+          font-weight: 400; }
           #routerOutletWrap #routerOutlet #basketPageWrap .products .totalSum span .price {
             display: inline-block;
             margin-left: 10px; }
@@ -1139,20 +1089,14 @@ header {
     #routerOutletWrap #routerOutlet #formUser form div label {
       font-weight: 400;
       font-size: 13px;
-      -webkit-transition: 0.5s;
-              transition: 0.5s;
+      transition: 0.5s;
       margin-left: 10px;
-      -webkit-transform: translateY(32px);
-          -ms-transform: translateY(32px);
-              transform: translateY(32px);
+      transform: translateY(32px);
       color: grey; }
       #routerOutletWrap #routerOutlet #formUser form div label span {
         display: inline-block;
         vertical-align: 3px; }
   #routerOutletWrap #routerOutlet #formUser form .flexWrap {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex; }
     #routerOutletWrap #routerOutlet #formUser form .flexWrap input {
       height: 35px;
@@ -1161,14 +1105,8 @@ header {
       padding-left: 10px; }
     #routerOutletWrap #routerOutlet #formUser form .flexWrap .formText {
       margin-left: 20px;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
       display: flex;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-          -ms-flex-align: center;
-              align-items: center;
+      align-items: center;
       color: grey;
       font-weight: 400;
       width: 280px;
@@ -1201,19 +1139,9 @@ header {
       width: 370px;
       margin: auto; }
   #routerOutletWrap #routerOutlet #loginWrap {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -webkit-flex-direction: column;
-        -ms-flex-direction: column;
-            flex-direction: column; }
+    justify-content: center;
+    flex-direction: column; }
     #routerOutletWrap #routerOutlet #loginWrap form {
       width: 200px;
       margin: auto;
@@ -1221,63 +1149,64 @@ header {
     #routerOutletWrap #routerOutlet #loginWrap .loginError {
       color: red;
       text-align: center; }
-  #routerOutletWrap #routerOutlet #adminPanelWrap .adminPanelGoods .adminPanelProduct {
-    border: 1px solid grey;
-    margin-top: 10px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-            justify-content: space-between; }
-    #routerOutletWrap #routerOutlet #adminPanelWrap .adminPanelGoods .adminPanelProduct a {
-      width: 350px;
-      text-align: center;
-      vertical-align: middle;
-      line-height: 150px; }
-      #routerOutletWrap #routerOutlet #adminPanelWrap .adminPanelGoods .adminPanelProduct a img {
-        max-width: 300px;
-        max-height: 150px;
-        background-position: center; }
-    #routerOutletWrap #routerOutlet #adminPanelWrap .adminPanelGoods .adminPanelProduct .adminPanelProductName {
-      width: 250px;
-      margin-top: 20px;
-      color: grey;
-      font-size: 18px;
-      vertical-align: middle; }
-    #routerOutletWrap #routerOutlet #adminPanelWrap .adminPanelGoods .adminPanelProduct .adminPanelProductInfo {
-      width: 300px;
-      text-align: right;
-      margin-right: 10px; }
-      #routerOutletWrap #routerOutlet #adminPanelWrap .adminPanelGoods .adminPanelProduct .adminPanelProductInfo img {
-        margin-top: 10px;
-        cursor: pointer; }
-      #routerOutletWrap #routerOutlet #adminPanelWrap .adminPanelGoods .adminPanelProduct .adminPanelProductInfo .productId, #routerOutletWrap #routerOutlet #adminPanelWrap .adminPanelGoods .adminPanelProduct .adminPanelProductInfo .productAvailability, #routerOutletWrap #routerOutlet #adminPanelWrap .adminPanelGoods .adminPanelProduct .adminPanelProductInfo .productPrice {
-        margin-top: 10px;
-        font-size: 16px;
-        font-weight: 500; }
-  #routerOutletWrap #routerOutlet #adminPanelWrap .adminAddNewProduct {
-    display: block;
-    margin: 20px 0; }
-  #routerOutletWrap #routerOutlet #addNewProductWrap input {
-    width: 400px;
-    margin-top: 10px; }
+  #routerOutletWrap #routerOutlet #adminPanelWrap {
+    width: 87%;
+    display: inline-block; }
+    #routerOutletWrap #routerOutlet #adminPanelWrap .adminPanelGoods .adminPanelProduct {
+      border: 1px solid grey;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between; }
+      #routerOutletWrap #routerOutlet #adminPanelWrap .adminPanelGoods .adminPanelProduct a {
+        width: 350px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 150px; }
+        #routerOutletWrap #routerOutlet #adminPanelWrap .adminPanelGoods .adminPanelProduct a img {
+          max-width: 300px;
+          max-height: 150px;
+          background-position: center; }
+      #routerOutletWrap #routerOutlet #adminPanelWrap .adminPanelGoods .adminPanelProduct .adminPanelProductName {
+        width: 250px;
+        margin-top: 20px;
+        color: grey;
+        font-size: 18px;
+        vertical-align: middle; }
+      #routerOutletWrap #routerOutlet #adminPanelWrap .adminPanelGoods .adminPanelProduct .adminPanelProductInfo {
+        width: 300px;
+        text-align: right;
+        margin-right: 10px; }
+        #routerOutletWrap #routerOutlet #adminPanelWrap .adminPanelGoods .adminPanelProduct .adminPanelProductInfo img {
+          margin-top: 10px;
+          cursor: pointer; }
+        #routerOutletWrap #routerOutlet #adminPanelWrap .adminPanelGoods .adminPanelProduct .adminPanelProductInfo .productId, #routerOutletWrap #routerOutlet #adminPanelWrap .adminPanelGoods .adminPanelProduct .adminPanelProductInfo .productAvailability, #routerOutletWrap #routerOutlet #adminPanelWrap .adminPanelGoods .adminPanelProduct .adminPanelProductInfo .productPrice {
+          margin-top: 10px;
+          font-size: 16px;
+          font-weight: 500; }
+    #routerOutletWrap #routerOutlet #adminPanelWrap .adminAddNewProduct {
+      display: block;
+      margin: 20px 0; }
+  #routerOutletWrap #routerOutlet #addNewProductWrap {
+    display: inline-block;
+    width: 87%; }
+    #routerOutletWrap #routerOutlet #addNewProductWrap input {
+      width: 400px;
+      margin-top: 10px; }
   #routerOutletWrap #routerOutlet #addNewProductWrap > div {
     margin-top: 20px; }
   #routerOutletWrap #routerOutlet #searchPageWrap {
-    margin-top: 40px; }
+    margin-top: 40px;
+    display: inline-block;
+    width: 87%; }
     #routerOutletWrap #routerOutlet #searchPageWrap h1 {
       font-size: 22px;
       font-weight: 500;
       margin-left: 20px; }
     #routerOutletWrap #routerOutlet #searchPageWrap .products .product {
-      height: 145px;
+      min-height: 145px;
       margin-top: 40px;
       border-bottom: 1px solid rgba(0, 0, 0, 0.3); }
       #routerOutletWrap #routerOutlet #searchPageWrap .products .product .productImage {
-        margin-left: 20px;
         display: inline-block;
         width: 130px;
         height: 130px;
@@ -1312,8 +1241,6 @@ header {
           margin-top: 10px; }
       #routerOutletWrap #routerOutlet #searchPageWrap .products .product .productBuyWrap {
         display: inline-block;
-        float: right;
-        margin-right: 20px;
         text-align: right; }
         #routerOutletWrap #routerOutlet #searchPageWrap .products .product .productBuyWrap .buttonBuy {
           display: inline-block;
@@ -1326,7 +1253,8 @@ header {
           color: white;
           background: #ffa400;
           border-radius: 5px;
-          margin-top: 90px; }
+          margin-top: 90px;
+          margin-bottom: 10px; }
 
 .productInBasketWrap {
   display: none;
@@ -1337,18 +1265,9 @@ header {
   left: 0;
   top: 0; }
   .productInBasketWrap div {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-        -ms-flex-align: center;
-            align-items: center;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 100%; }
     .productInBasketWrap div .productInBasket {
@@ -1361,18 +1280,9 @@ header {
       box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.2) inset;
       font-weight: 600;
       top: 50%;
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
       display: flex;
-      -webkit-box-pack: center;
-      -webkit-justify-content: center;
-          -ms-flex-pack: center;
-              justify-content: center;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-          -ms-flex-align: center;
-              align-items: center; }
+      justify-content: center;
+      align-items: center; }
 
 #loaderImage {
   clear: both;

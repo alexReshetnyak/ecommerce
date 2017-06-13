@@ -1,40 +1,25 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=990">
 	<title>E commerce</title>
-   <!-- <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">-->
-    <link href='http://ecommercewebsite.site11.com/img/favicon.ico?t=123124' rel='icon' type='image/x-icon'/>
-	<link rel="stylesheet" href="css/bootstrap.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-theme.css">
 	<link rel="stylesheet" href="css/carousel1.css">
     <link rel="stylesheet" href="css/index.css">
-
-	<script
-			  src="https://code.jquery.com/jquery-3.1.1.min.js"
-			  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-			  crossorigin="anonymous">
-	</script>
-    <script src="js/jquery-ui.min.js"></script>
-    <script src="js/jquery.maskedinput.min.js"></script>
-    <script src="js/director.min.js"></script>
-    <script src="js/handlebars.js"></script>
-	<script src="js/bootstrap.js"></script>
-    <script src="js/homepage.js"></script>
-    <script src="js/basket.js"></script>
-    <script src="js/formbuy.js"></script>
-    <script src="js/menu.js"></script>
-    <script src="js/menuelement.js"></script>
-    <script src="js/goodslist.js"></script>
-    <script src="js/product.js"></script>
-    <script src="js/thankyou.js"></script>
-    <script src="js/login.js"></script>
-    <script src="js/adminpanel.js"></script>
-    <script src="js/newproduct.js"></script>
-    <script src="js/search.js"></script>
-    <script src="js/index.js"></script>
 </head>
+
 <body>  
 	<div class="container-fluid">
         <!-- Карусель -->
@@ -66,30 +51,46 @@
     	</div>
     </div>
     <header>
-        <div id="header-phone">
-            <div id="header-phone-city">Харьков</div><br>
-            <div id="header-phone-number">+38 (099) 483-61-75</div>
-        </div>
-        <a href="http://ecommercewebsite.site11.com/#basket" id="header-basket">
-            <div id="basketCountOfProducts"></div>
-            <img src="img/basket.png" height="24" alt="Корзина"> Корзина <span id="basketOrders"></span>
-        </a>
+        <div class="container">
+            <div class="row">
+                <div class="header-col">
+                    <div id="header-phone">
+                        <div id="header-phone-city">Харьков</div><br>
+                        <div id="header-phone-number">+38 (099) 483-61-75</div>
+                    </div>
+                </div><div class="col-md-7 col-xs-1 header-spacer"></div
+                ><div class="header-col header-col2">
+                     <a href="http://ecommerce.ho.ua/#basket" id="header-basket">
+                        <div id="basketCountOfProducts"></div>
+                        <img src="img/basket.png" height="24" alt="Корзина"> Корзина <span id="basketOrders"></span>
+                    </a>
+                </div>
+            </div>
+        </div> 
     </header>
     <div id="premenuWrap">
-        <div id="premenu">
-            <a href="#"><div id="mainlogo"><img src="img/mainlogo.png" height="40" alt="Домой"></div></a>
-            <div id="search">
-                <img src="img/searchlogo.png" height="24" alt="Значек поиска">
-                <input id="searchInput" type="text" placeholder="Поиск среди товаров">
-                <button id="searchButton">Найти</button>
-            </div>
+        <div id="premenu" class="container">
+             <div class="row">
+                 <a href="#" class="col-md-3  col-xs-12">
+                    <div id="mainlogo" >
+                        <img src="img/mainlogo.png" height="40" alt="Домой">
+                    </div>
+                </a>
+                 <div class="search-wrap col-md-6  col-xs-12" >
+                     <div id="search" >
+                        <img src="img/searchlogo.png" height="24" alt="Значек поиска">
+                        <input id="searchInput" type="text" placeholder="Поиск среди товаров">
+                        <button id="searchButton">Найти</button>
+                    </div>
+                 </div>
+             </div>
         </div>
     </div>
-    <div id="menuWrap">
-        <div id="menu">
+    <div id="menuWrap" class="container">
+        <div id="menu" class="row">
             <div id="menu-furniture">
                 <a href="#furniture">
-                    <div id="menu-furniture-button" href="/furniture">
+                    <div id="menu-furniture-button">
                          <div class="menu-logo">
                              <img src="img/sofalogo.png" height="40" alt="Мебель">
                          </div>
@@ -197,8 +198,8 @@
             </div>
         </div>
     </div>
-    <div id="routerOutletWrap">
-        <div id="routerOutlet">
+    <div id="routerOutletWrap" class="container">
+        <div id="routerOutlet" class="row text-center" >
         </div>
     </div>
     <div class="productInBasketWrap">
@@ -213,5 +214,19 @@
     <footer>
     	<div class="rights">2017 E commerce®. Все права защищены.</div>
     </footer>
+
+
+
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous">
+	</script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.maskedinput.min.js"></script>
+    <script src="js/director.min.js"></script>
+    <script src="js/handlebars.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+    <script src="bundle.js"></script>
 </body>
 </html>

@@ -1,5 +1,8 @@
 
-function GoodsList(routerOutlet, newHandlebars){
+import {basket} from './index.js';
+import SortBlock from './sortblock.js';
+
+export default function GoodsList(routerOutlet, newHandlebars){
 	this._newHandlebars = newHandlebars;
 	this._routerOutlet = routerOutlet;
 	this._routerOutletGoods;
@@ -20,7 +23,13 @@ function GoodsList(routerOutlet, newHandlebars){
 	this._buyListener;
 	this._arrowUp = $('#arrowUp');
     this._arrowStatus = false;
-    this._promiseTemplate = $.ajax({
+    this._promiseTemplate;
+    this._promiseTemplateGoods;
+}
+
+GoodsList.prototype.render = function(type){
+	window.scrollTo(0,0);
+	this._promiseTemplate = $.ajax({
 							type: "POST",
 							url: "/templates/goodslist.html"
 						   });
@@ -28,22 +37,15 @@ function GoodsList(routerOutlet, newHandlebars){
 							type: "POST",
 							url: "/templates/productslist.html"
 						   });
-}
-
-GoodsList.prototype.render = function(type){
-	window.scrollTo(0,0);
 	this._routerOutlet.innerHTML = '<div class="loadingDataFromServer"></div>';
 	this._typeOfGoods = type;
     this._renderObject();
 }
 
 GoodsList.prototype._renderObject = function(){
-
 	var self = this;
 	this._promiseTemplate.then(function (datateplate) {
-
 		self._template = datateplate;
-
 		var header;
 		switch (self._typeOfGoods) {
 			case 'cushionedfurniture':
@@ -111,19 +113,19 @@ GoodsList.prototype._renderObject = function(){
 				break;
 			case 'prams':
 				header = "Коляски и автокресла";
-				break;	
+				break;
 			case 'construction':
 				header = "Конструкторы";
-				break;	
+				break;
 			case 'formom':
 				header = "Для мам и беременных";
-				break;	
+				break;
 			case 'gardenEquipment':
 				header = "Садовая техника";
-				break;	
+				break;
 			case 'gardenTools':
 				header = "Садовый инвентарь";
-				break;	
+				break;
 			case 'plants':
 				header = "Уход за растениями";
 				break;	
@@ -133,15 +135,18 @@ GoodsList.prototype._renderObject = function(){
 		var dataObject = {
  		    header: header
 	    }
+
 	    self._routerOutlet.innerHTML = self._newHandlebars(self._template, dataObject);
 	    self._routerOutletGoods = document.querySelector('#productsList');
 	    self._routerOutletGoods.innerHTML = '<div class="loadingDataFromServer"></div>';
 	    self._sortBlock = new SortBlock();
 	    self._getElementsFromServer(self._typeOfGoods, self._sortBlock._buttonActive);
 	});
+
 }
 
 GoodsList.prototype._getElementsFromServer = function(type, sortInfo){
+
 	$.ajax({
 		 	type: "POST",
 		 	url: "/php/controller.php",
@@ -151,13 +156,17 @@ GoodsList.prototype._getElementsFromServer = function(type, sortInfo){
 		   });
 }
 
+
+
 GoodsList.prototype._renderProducts = function(dataFromServer){
+
 	var self = this;
     this.activePage = 1;
     this._lastPage = false;
 	this._dataFromServer = dataFromServer || [];
 
 	this._promiseTemplateGoods.then(function(datatemplateGoods){
+
 			self._templateGoods = datatemplateGoods;
 			self._productsArray.length = 0;
 	        for (var i = 0; i < self._dataFromServer.length; i++) {
@@ -167,9 +176,11 @@ GoodsList.prototype._renderProducts = function(dataFromServer){
 	        		self._minCost = +product.price;
 	        		self._maxCost = +product.price;
 	        	}
+
 	        	if (self._minCost > +product.price) {
 	        		self._minCost = +product.price;
 	        	}
+
 	        	if (self._maxCost < +product.price) {
 	        		self._maxCost = +product.price;
 	        	}
@@ -181,9 +192,9 @@ GoodsList.prototype._renderProducts = function(dataFromServer){
 	        self._realTimeArray = self._getProductsOnThisPage(self.activePage, self._productsArray);
 
 	        var dataObject = {
- 		        products:  self._realTimeArray
+				products:  self._realTimeArray
 	        }
-	        
+
 	        self._routerOutletGoods.innerHTML = "";
 	        var divForGoods = document.createElement('div');
 	        divForGoods.innerHTML = self._newHandlebars(self._templateGoods, dataObject);
@@ -192,7 +203,10 @@ GoodsList.prototype._renderProducts = function(dataFromServer){
 		});
 }
 
+
+
 GoodsList.prototype._getProductsOnThisPage = function(activePage, productsArray){
+
 	var productsOnThisPage = [];
 	var counter = 0;
 	if (productsArray.length > ((activePage - 1)*this._productsOnPage)) {
@@ -212,17 +226,21 @@ GoodsList.prototype._getProductsOnThisPage = function(activePage, productsArray)
 }
 
 GoodsList.prototype._addListenerToList = function(){
-	var self = this;
 
+	var self = this;
     this._routerOutletGoods.onclick = function (event) {
+
 		if (event.target.classList.contains('buy')){
 			event.preventDefault();
 			var id = event.target.getAttribute('data');
-			window.app.basket.addElementToBasket(id);
+			basket.addElementToBasket(id);
 		}
 	}
 
+
+
 	window.onscroll = function() {
+
         var scrolled = window.pageYOffset || document.documentElement.scrollTop;
         var realHeight = scrolled + document.documentElement.clientHeight;
         var heightToLastProduct = 470 + (self.activePage*self._productsOnPage/3)*370;
@@ -236,6 +254,7 @@ GoodsList.prototype._addListenerToList = function(){
                 var dataObject = {
  		            products:  productsOnThisPage
 	            }
+
 	            divForGoods.innerHTML = self._newHandlebars(self._templateGoods, dataObject);
 	            setTimeout(function () {
 	            	self._loader.style.display = 'none';
@@ -243,66 +262,76 @@ GoodsList.prototype._addListenerToList = function(){
 	            }, 500);    
         	}
         }
+
         if (scrolled > 500 && !self._arrowStatus) {
         	self._arrowStatus = true;
         	self._arrowUp.fadeIn(500, function() {
         	});
+
         }else if (scrolled < 500 && self._arrowStatus){
         	self._arrowStatus = false;
         	self._arrowUp.fadeOut(500, function() {
         	});
         }
     }
+
     this._arrowUp.click( function() {
 	    $("html, body").animate({scrollTop:$('body').position().top}, 800);
     });
 }
 
-
 GoodsList.prototype._startSlider = function(){
-	
+
 	var sliderInputMax = document.querySelector("#maxCost");
 	var sliderInputMin = document.querySelector("#minCost");
 	sliderInputMax.value = this._maxCost;
 	sliderInputMin.value = this._minCost;
 	var self = this;
+
 	//--------RangeSLIDER----------------------------------------------------------------------------
+
         $("#rangeslider").slider({
             min: 0,
             max: this._maxCost,
             values: [this._minCost, this._maxCost],
             range: true,
             stop: function(event, ui) {
+
             	var value1 = $("#rangeslider").slider("values",0);
             	var value2 = $("#rangeslider").slider("values",1);
                 $("input#minCost").val(value1);
                 $("input#maxCost").val(value2);
                 self._renderWithNewOptions("rangePrice", value1, value2);
+
             },
             slide: function(event, ui){
                 $("input#minCost").val($("#rangeslider").slider("values",0));
                 $("input#maxCost").val($("#rangeslider").slider("values",1));
             }
         });
-    
+
         $("input#minCost").change(function(){
             var value1=$("input#minCost").val();
             var value2=$("input#maxCost").val();
 
             if(isNaN((+value1) + (+value2))) {
+
             	value1 = self._minCost;
             	$("input#minCost").val(self._minCost);
             }
-        
+
             if(parseInt(value1) > parseInt(value2)){
+
                 value1 = value2;
                 $("input#minCost").val(value1);
             }
+
             self._renderWithNewOptions("rangePrice", value1, value2);
             $("#rangeslider").slider("values",0,value1);    
         });
-              
+
         $("input#maxCost").change(function(){
+
             var value1=$("input#minCost").val();
             var value2=$("input#maxCost").val();
 
@@ -310,13 +339,14 @@ GoodsList.prototype._startSlider = function(){
             	value2 = this._maxCost;
             	$("input#maxCost").val(this._maxCost);
             }
-            
+
             if (value2 > this._maxCost) { value2 = this._maxCost; $("input#maxCost").val(this._maxCost)}
-        
+
             if(parseInt(value1) > parseInt(value2)){
                 value2 = value1;
                 $("input#maxCost").val(value2);
             }
+
             self._renderWithNewOptions("rangePrice", value1, value2);
             $("#rangeslider").slider("values",1,value2);
         });
@@ -327,9 +357,9 @@ GoodsList.prototype._startSlider = function(){
 }
 
 GoodsList.prototype._renderWithNewOptions = function(){
-	
+
 	var productsSortArray = [];
-	
+
 	if (arguments[0] === 'rangePrice') {
 		var minValue = arguments[1];
 		var maxValue = arguments[2];
@@ -348,17 +378,22 @@ GoodsList.prototype._renderWithNewOptions = function(){
 		var dataObject = {
  		    products: this._realTimeArray
 	    }
+
 	    this._routerOutletGoods.innerHTML = this._newHandlebars(this._templateGoods, dataObject);	
 	}
 }
 
+
+
 function ProductFromList(dataFromServer){
+
 	this.id = dataFromServer.id || '';
 	this.price = dataFromServer.price || '';
 	this.name = dataFromServer.name || '';
 	this.image = JSON.parse(dataFromServer.images)[0] ? JSON.parse(dataFromServer.images)[0]["small"] : '';
 	this.menucategory = dataFromServer.menucategory || "";
 	this.goodscategory = dataFromServer.goodscategory || "";
+
 	this.availability = (function(dataFromServer){
 		if (dataFromServer.availability == 1) {
 			return true;
@@ -367,44 +402,3 @@ function ProductFromList(dataFromServer){
 		}
 	})(dataFromServer);
 }
-
-function SortBlock() {
-	this._sortBlock = document.querySelector('#sortBlock');
-	this._buttonAuto = document.querySelector('#sortAuto');
-	this._buttonAuto.classList.add('chekedSortButton');
-	this._buttonActive = "auto";
-	this._addListener();
-}
-
-SortBlock.prototype._addListener = function(){
-	var self = this;
-    this._sortBlock.addEventListener('click', function(eventO){
-
-		if (eventO.target.id === 'sortBlock'){
-			return;
-		}
-
-		var activeButtons = document.querySelectorAll(".chekedSortButton");
-		for (var i = 0; i < activeButtons.length; i++) {
-		    activeButtons[i].classList.remove('chekedSortButton');
-	    }
-
-	    eventO.target.classList.add('chekedSortButton');
-
-		if(eventO.target.id === 'sortAuto'){
-			self._buttonActive = 'auto';
-		}else if (eventO.target.id === 'sortViews') {
-			self._buttonActive = 'views';
-		}else if (eventO.target.id === 'sortPriceUp') {
-			self._buttonActive = 'priceUp';
-		}else if (eventO.target.id === 'sortPriceDown') {
-			self._buttonActive = 'priceDown';
-		}
-		window.app.goodsList.activePage = 1;
-		window.app.goodsList._productsArray.length = 0;
-		window.app.goodsList._getElementsFromServer(window.app.goodsList._typeOfGoods, self._buttonActive);
-	});
-}
-
- window.app = window.app || {};
- window.app.GoodsList = window.app.GoodsList || GoodsList;

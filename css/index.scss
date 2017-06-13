@@ -1,5 +1,5 @@
 
-
+ 
 /*------------------------------------------ROBOTO2 ---------------------------*/ 
 @font-face {
     font-family: 'Roboto2';
@@ -105,10 +105,28 @@ a:active {
 }
 
 header{
-	width: 990px;
-	height: 45px;
+	min-height: 45px;
 	font-family: Roboto2;
 	margin: auto;
+	vertical-align: top;
+
+	.row{
+		text-align: center;
+		vertical-align: top;
+	}
+
+	.header-col{
+		width: 150px;
+		float: none;
+		display: inline-block;
+		text-align: left;
+		vertical-align: top;
+	}
+
+	.header-spacer{
+		float: none;
+		display: inline-block;
+	}
 
 	#header-phone{
 		display:inline-block;
@@ -125,16 +143,15 @@ header{
 		}
 	}
 	#header-basket{
-		float: right;
 		display: flex;
-		height: 45px;
+		justify-content: flex-end;
+		height: 40px;
 		font-size: 13px;
 		font-weight: 300;
 		margin-right: 20px;
 		align-items: center;
 
 		#basketCountOfProducts{
-			display: inline-block;
 			background: rgb(248, 138, 8);
 			border-radius: 3px;
 			height: 20px; 
@@ -153,25 +170,35 @@ header{
 
 #premenuWrap{
 	background: black;
-	height: 70px;
+	min-height: 66px;
 	color: white;
 	font-family: Roboto2;
-	min-width: 1020px;
 
 	#premenu{
-		width: 990px;
 		margin: auto;
+		text-align: center;
+		line-height: 66px;
+
+		.row{
+			vertical-align: middle;
+		}
 
 		#mainlogo{
-			display:inline-block;
-			line-height: 66px;
+			img{
+				margin-left: 60px;
+			}
 		}
+		.search-wrap{
+			min-height: 66px;
+			line-height: 66px;
+			vertical-align: middle;
+		}
+
 		#search{
-			display:inline-block;
-			background: white;
-			margin-left: 80px;
-			border-radius: 3px;
+			display: inline-block;
 			width: 520px;
+			background: white;
+			border-radius: 3px;
 			height: 35px;
 			vertical-align: middle;
 			line-height:33px;
@@ -219,14 +246,13 @@ header{
 #menuWrap{
 	font-family: roboto2;
 	text-align: center;
-	min-width: 1020px;
 }
 
 #menu{
 	display:inline-block;
 	margin:auto;
 	text-align: center;
-	height: 95px;
+	min-height: 95px;
 	border-bottom: 2px solid rgba(0, 0, 0, 0.2);
 }
 
@@ -304,7 +330,6 @@ header{
 
 	#routerOutlet{
 		font-family: roboto2;
-		width: 990px;
 		min-height: 900px;
 		margin: auto;
 		margin-bottom: 40px;
@@ -315,7 +340,12 @@ header{
 			background-position: 50% 50%;
 		}
 	
-		#mainelementspage{		
+		#mainelementspage{
+
+			.elements-container{
+				width: 86%;
+				display: inline-block;
+			}	
 
 			h2{
 				font-size: 22px;
@@ -347,6 +377,8 @@ header{
 				width:640px;
 				height:460px;
 				float: left;
+				margin-bottom: 22px;
+				margin-right: 20px;
 	
 				img{
 					width: 640px;
@@ -356,7 +388,7 @@ header{
 			a:nth-child(3), a:nth-child(4){
 				width:320px;
 				height:216px;
-				margin-left: 28px;
+				float: left;
 	
 				img{
 					width: 320px;
@@ -364,8 +396,8 @@ header{
 				}
 			}
 
-			a:nth-child(4){
-				margin-top: 22px;
+			a:nth-child(3){
+				margin-bottom: 22px;
 			}
 	
 			a:hover img{
@@ -382,6 +414,8 @@ header{
 	
 		#goodslist {
 			position: relative;
+			width: 86%;
+			display: inline-block;
 
 			h2{
 				font-weight: 400;
@@ -467,6 +501,7 @@ header{
 
 			#sortBlock{
 				margin: 20px;
+				text-align: left;
 
 				div{
 					border: 1px solid rgba(0, 0, 0, 0.3);
@@ -489,7 +524,7 @@ header{
 					}
 				}
 				div:nth-child(3), div:nth-child(4){
-					width: 88px;
+					width: 89px;
 				}
 				div:nth-child(4){
 					span{
@@ -516,9 +551,13 @@ header{
 			}
 
 			#productsList{
-	
+
+				.list-product-wrap{
+					padding: 0;
+				}
+
 				.product{
-					width: 33.3%;
+					width: 100%;
 					height: 370px;
 					border: 1px solid rgba(230,230,230, 1);
 					display: inline-block;
@@ -589,6 +628,9 @@ header{
 		}
 	
 		#productPageWrap{
+			width: 87%;
+			display: inline-block;
+
 			h2{
 				font-weight: 400;
 				font-size: 24px;
@@ -597,10 +639,11 @@ header{
 			#productPage{
 				border-bottom: 4px solid rgba(230,230,230, 1);
 				padding-bottom: 30px;
+				height: 530px;
 
 				.imageSlide{
-					width: 66%;
 					display:inline-block;
+					padding: 0;
 
 					.imageMiddle{
 						width: 450px;
@@ -639,9 +682,8 @@ header{
 					}
 				}
 				.productPriceWrap{
-					width: 28%;
-					float: right;
 					height: 500px;
+					padding: 0;
 
 					.productPrice{
 						font-size: 34px;
@@ -815,10 +857,14 @@ header{
 			#productDescriptionWrap{
 				vertical-align: top;
 
-				.productDescriptionTab{
-					width: 50%;
+				.productDescriptionCol{
+					padding: 0;
 					display: inline-block;
-					float: left;
+				}
+
+				.productDescriptionTab{
+					width: 485px;
+					display: inline-block;
 					margin-bottom: 50px;
 
 					h3{
@@ -848,13 +894,12 @@ header{
 				.productDescription{
 					background: rgba(247,247,247,1);
 					display: inline-block;
-					width: 46.9%;
 					padding: 10px 20px 20px 20px;
-					margin-left: 30px;
 					margin-top: 20px;
 					margin-bottom: 50px;
 					font-weight: 300;
 					line-height: 22px;
+					text-align: left;
 
 					h3{
 						margin: 0;
@@ -871,13 +916,19 @@ header{
 
 			.homePageSliders{
 				margin-top: 30px;
-				width: 100%;
-				height: 540px;
+				min-height: 540px;
+
+				.slider-wrap{
+					width: 495px;
+					padding: 0;
+					float: none;
+					display: inline-block;
+				}
 
 				.homePageSlider1{
 					overflow: hidden;
 					display: inline-block;
-					width: 49.5%;
+					width: 490px;
 					height: 540px;
 					border: 1px solid #C1D837;
 
@@ -1003,11 +1054,9 @@ header{
 				.homePageSlider2{
 					border: 1px solid #4FCBF4;
 					overflow: hidden;
-					float: right;
 					display: inline-block;
-					width: 49.5%;
+					width: 490px;
 					height: 540px;
-					margin-left: 6px;
 
 					.homeSliderHeader{
 						background: #4FCBF4;
@@ -1130,6 +1179,9 @@ header{
 				}
 			}
 			.homePageAlsoBuy {
+				width: 87%;
+				display: inline-block;
+
 				h2{
 					font-size: 18px;
 				}
@@ -1165,6 +1217,8 @@ header{
 				}
 			}
 			.houseAppliancesHp{
+				width: 87%;
+				display: inline-block;
 				margin-top: 30px;
 				margin-bottom: 10px;
 
@@ -1212,6 +1266,8 @@ header{
 				padding: 20px 20px;
 				color: grey;
 				text-align: center;
+				width: 87%;
+				display: inline-block;
 
 				h1{
 					color: rgb(0,0,0);
@@ -1231,6 +1287,9 @@ header{
 		}
 		#basketPageWrap{
 			margin-top: 40px;
+			width: 87%;
+			display: inline-block;
+
 			h1{
 				font-size: 22px;
 				font-weight: 500;
@@ -1240,7 +1299,7 @@ header{
 				display: none;
 
 				.product{
-					height: 145px;
+					min-height: 145px;
 					margin-top: 40px;
 					border-bottom: 1px solid rgba(0,0,0, 0.3);
 	
@@ -1258,8 +1317,10 @@ header{
 						display: inline-block;
 						vertical-align: top;
 						margin-left: 20px;
+						width: 420px;
 	
 						.productName{
+
 							font-size: 18px;
 							font-weight: 400;
 							color: rgb(54, 54, 54);
@@ -1279,8 +1340,7 @@ header{
 					}
 					.productPriceWrap{
 						display: inline-block;
-						float: right;
-						margin-right: 20px;
+						padding: 0;
 						text-align: right;
 	
 						.productDelete{
@@ -1299,7 +1359,7 @@ header{
 						}
 					}
 				}
-				.totalSum{
+				.totalSum{ 
 					text-align: right;
 					color: grey;
 					font-size: 16px;
@@ -1312,9 +1372,7 @@ header{
 					span{
 						color: black;
 						font-size: 24px;
-						margin-right: 20px;
 						font-weight: 400;
-						margin-right: 20px;
 	
 						.price{
 							display: inline-block;
@@ -1461,7 +1519,11 @@ header{
 			}
 		}
 		#adminPanelWrap{
+			width: 87%;
+			display: inline-block;
+
 			.adminPanelGoods{
+
 				.adminPanelProduct{
 					border: 1px solid grey;
 					margin-top: 10px;
@@ -1511,6 +1573,9 @@ header{
 			}
 		}
 		#addNewProductWrap{
+			display: inline-block;
+			width: 87%;
+			
 			input{
 				width: 400px;
 				margin-top: 10px;
@@ -1522,6 +1587,9 @@ header{
 		}
 		#searchPageWrap{
 			margin-top: 40px;
+			display: inline-block;
+			width: 87%;
+
 			h1{
 				font-size: 22px;
 				font-weight: 500;
@@ -1530,12 +1598,11 @@ header{
 			.products{
 
 				.product{
-					height: 145px;
+					min-height: 145px;
 					margin-top: 40px;
 					border-bottom: 1px solid rgba(0,0,0, 0.3);
 	
 					.productImage{
-						margin-left: 20px;
 						display: inline-block;
 						width: 130px;
 						height: 130px;
@@ -1577,8 +1644,6 @@ header{
 					}
 					.productBuyWrap{
 						display: inline-block;
-						float: right;
-						margin-right: 20px;
 						text-align: right;
 
 						.buttonBuy{
@@ -1593,6 +1658,7 @@ header{
 							background: rgb(255,164,0);
 							border-radius: 5px;
 							margin-top: 90px;
+							margin-bottom: 10px;
 						}
 					}
 				}

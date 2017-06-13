@@ -1,11 +1,15 @@
 ﻿<div id="mainelementspage">
-	<h2>{{header}}</h2>
-	{{#each templates}}
-		<a href="{{link}}">
-			<img src="{{img}}" alt="{{name}}">
-			<span>{{name}}</span>
-		</a>
-
-	{{/each}}
-	<br>
+	<div class="elements-container">
+		<div class="text-left">
+			<h2>{{header}}</h2>
+		</div>
+		{{#each templates}}
+			<a href="{{link}}">
+				<img src="{{img}}" alt="{{name}}">
+				<span>{{name}}</span>
+			</a>
+		{{/each}}
+		<br>
+	</div>
 </div>
+

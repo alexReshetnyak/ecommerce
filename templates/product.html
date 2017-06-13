@@ -1,7 +1,7 @@
 ﻿<div id="productPageWrap">
-	<h2>{{name}}</h2>
+	<h2 class="text-left">{{name}}</h2>
 	<div id="productPage">
-		<div class="imageSlide">
+		<div class="imageSlide col-xs-12 col-md-9">
 			<div class="imageMiddle" data="0" style="background-image: url({{imagesMiddleFirst}});">
 			</div>
 			<div class="imageSmallWrap">
@@ -10,7 +10,7 @@
 				{{/each}}
 			</div>
 		</div>
-		<div class="productPriceWrap">
+		<div class="productPriceWrap col-xs-12 col-md-3">
 			<div class="productPrice">{{price}} UAH</div>
 			{{#if availability}}
 				<div class="productBuy" data="{{id}}">Купить</div>
@@ -48,29 +48,34 @@
 			</div>
 		</div>
 	</div>
-	
-	<div id="productDescriptionWrap">	
-		<div class="productDescriptionTab">
-			<h3>Характеристики: {{name}}</h3>
-			<table>
-				{{#each specifications}}
-					<tr>
-						<th>{{name}}</th>
-					</tr>
-					{{#each description}}
+
+	<div id="productDescriptionWrap" class='text-center'>
+		<div class="col-xs-12 col-md-6 productDescriptionCol text-center">
+			<div class="productDescriptionTab text-left">
+				<h3>Характеристики: {{name}}</h3>
+				<table>
+					{{#each specifications}}
 						<tr>
-							<td>{{name}}</td>
-							<td>{{value}}</td>
+							<th>{{name}}</th>
 						</tr>
+						{{#each description}}
+							<tr>
+								<td>{{name}}</td>
+								<td>{{value}}</td>
+							</tr>
+						{{/each}}
 					{{/each}}
-				{{/each}}
-			</table>
+				</table>
+			</div>
 		</div>
-		<div class="productDescription">
-			{{#if description}}
-				<h3>Описание</h3>
-				{{description}}
-			{{/if}}
+		<div class="col-xs-12 col-md-6 productDescriptionCol">
+			<div class="productDescription">
+				{{#if description}}
+					<h3 >Описание</h3>
+					{{description}}
+				{{/if}}
+			</div>
 		</div>
 	</div>
 </div>	
+

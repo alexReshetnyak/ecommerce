@@ -1,4 +1,7 @@
-function Product (routerOutlet, newHandlebars) {
+import {basket} from './index.js';
+
+export default function Product (routerOutlet, newHandlebars) {
+
 	this._newHandlebars = newHandlebars;
 	this._routerOutlet = routerOutlet;	
 	this._dataFromServer;
@@ -13,14 +16,16 @@ function Product (routerOutlet, newHandlebars) {
 	this._imageBigDiv;
 	this._bigImageBlock;
 	this._productPageWrapDiv;
-    this._promiseTemplate = $.ajax({
-							type: "POST",
-							url: "/templates/product.html"
-						   });
+    this._promiseTemplate;
 }
 
 Product.prototype.render = function(type, id){
+
 	window.scrollTo(0,0);
+	this._promiseTemplate = $.ajax({
+							type: "POST",
+							url: "/templates/product.html"
+						   });
 	this._getElementFromServer(id);
 }
 
@@ -68,15 +73,13 @@ Product.prototype._renderProduct = function(dataFromServer){
 Product.prototype._addListenerToProduct = function(){
 
 	this._productPageWrapDiv = this._routerOutlet.querySelector('#productPageWrap');
-
     this._productPageWrapDiv.onclick = function (event) {
 		if (event.target.classList.contains('productBuy') || event.target.classList.contains('productBigImageBuy')){
 			var id = event.target.getAttribute('data');
-			window.app.basket.addElementToBasket(id);
+			basket.addElementToBasket(id);
 		}
 	}
 }
-
 
 Product.prototype._changeImageMiddle = function(){
 	 this._imageSmallWrap = document.querySelector('.imageSmallWrap');
@@ -106,12 +109,12 @@ Product.prototype._changeImageMiddle = function(){
 	 });
 }
 
+
 Product.prototype._renderBigImage = function(){
 	this._imageSmallWrapInBig = document.querySelector('.bigImageSmallWrap');
 	this._imagesSmallInBig = document.querySelectorAll('.bigImageSmallWrap div');
 	this._imageBigDiv = document.querySelector('.productBigImage');
 	this._bigImageBlock = document.querySelector('.productBigImageBlock');
-
 	this._imagesSmallInBig[this._activeImage].classList.add('bigImageSmallActive');
 
 	var self = this;
@@ -127,19 +130,25 @@ Product.prototype._renderBigImage = function(){
 	 	    self._imageBigDiv.style.backgroundImage = "url(" + self._dataObject.images[self._activeImage]["big"] + ")";
 	 	}
 	 });
+
 	 this._imageBigDiv.style.backgroundImage = "url(" + self._dataObject.images[self._activeImage]["big"] + ")";
+
 	 $('.productBigImageBlock').fadeIn(300, function(){
+
 	 	self._bigImageBlock.addEventListener('click', function(eventO){
+
 	 		if (eventO.target.classList.contains('productBigImageBlock') || eventO.target.classList.contains('productBigImageExit')) {
 
 	 			$('.productBigImageBlock').fadeOut(300);
 	            self._imagesSmallInBig[self._activeImage].classList.remove('bigImageSmallActive');
+
 	 		}
 	 	});
 	});
 }
 
 Product.prototype._addViews = function(){
+
 	var id = this._dataFromServer.id;
 	var views = +this._dataFromServer.views + 1;
 	$.ajax({
@@ -150,6 +159,3 @@ Product.prototype._addViews = function(){
 		 	success: function(data){if (!data) console.log(data, 'ошибка при добалении просмотров')}
 		   });
 }
-
- window.app = window.app || {};
- window.app.Product = window.app.Product || Product;

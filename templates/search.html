@@ -1,23 +1,26 @@
 <div id="searchPageWrap">
-	<h1>Результаты поиска</h1>
-	<div class="products">
+	<h1 class="text-left">Результаты поиска</h1>
+	<div class="products text-left">
     {{#if products}}
 	    {{#each products}}
 			<div class="product" data='{{id}}'>
-				<a class="productImage" href="http://ecommercewebsite.site11.com/#{{menucategory}}/{{goodscategory}}/{{id}}" style="background-image: url({{image}});" alt="{{name}}"></a>
-				<div class="productDescription">
-					<a class="productName" href="http://ecommercewebsite.site11.com/#{{menucategory}}/{{goodscategory}}/{{id}}">{{name}}</a>
-					{{#if availability}}
-						<div class="productAvailable">Есть в наличии</div>
-					{{else}}
-						<div class="productAbsent">Нет в наличии</div>
-					{{/if}}
+				<div class="col-md-10 col-xs-12">
+					<a class="productImage" href="http://ecommerce.ho.ua/#{{menucategory}}/{{goodscategory}}/{{id}}" style="background-image: url({{image}});" alt="{{name}}"></a>
+					<div class="productDescription">
+						<a class="productName" href="http://ecommerce.ho.ua/#{{menucategory}}/{{goodscategory}}/{{id}}">{{name}}</a>
+						{{#if availability}}
+							<div class="productAvailable">Есть в наличии</div>
+						{{else}}
+							<div class="productAbsent">Нет в наличии</div>
+						{{/if}}
+					</div>
 				</div>
-				<div class="productBuyWrap">
+				<div class="productBuyWrap col-md-2 col-xs-2">
 					{{#if availability}}
 						<div class="buttonBuy" data="{{id}}">Купить</div>
 					{{/if}}
 				</div>
+				<div style="clear: both;"></div>
 			</div>
 	    {{/each}}
     {{else}}

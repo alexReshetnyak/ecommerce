@@ -1,20 +1,24 @@
-function FormBuy(routerOutlet, newHandlebars){
+import {basket} from './index.js';
+import {thankYou} from './index.js';
+
+export default function FormBuy(routerOutlet, newHandlebars){
 	this._newHandlebars = newHandlebars;
 	this._routerOutlet = routerOutlet;
 	this._formDiv;
 	this._inputPhone;
 	this._inputMail;
 	this._buttonSubmit;
-	this._promiseTemplate = $.ajax({
-							type: "POST",
-							url: "/templates/formbuy.html"
-						   });
+	this._promiseTemplate;
 }
 
 FormBuy.prototype.render = function(){
 	window.scrollTo(0,0);
-	var self = this;
+	this._promiseTemplate = $.ajax({
+							type: "POST",
+							url: "/templates/formbuy.html"
+						   });
 
+	var self = this;
 	this._promiseTemplate.then(function (datateplate) {
 
 		self._template = datateplate;
@@ -26,6 +30,7 @@ FormBuy.prototype.render = function(){
 }
 
 FormBuy.prototype._addFormListeners = function(){
+
 	var self = this;
 	this._formDiv = document.querySelector('#formUser');
 	this._inputPhone = this._formDiv.querySelector('#phoneForm');
@@ -36,7 +41,9 @@ FormBuy.prototype._addFormListeners = function(){
 	$(function($){
 		$("#phoneForm").mask("+38 (999) 999-9999", {'autoclear': false});
 	});
+
 //----------------------------------Phone-----------------------------------------------------------
+
 	this._inputPhone.addEventListener('focus', function (event) {
 		if (self._inputPhone.classList.contains('blur')){
 			event.target.blur();
@@ -53,7 +60,7 @@ FormBuy.prototype._addFormListeners = function(){
 			self._inputPhone.classList.add('blur');
 			self._formDiv.querySelector('#labelPhone').style.transform = 'translateY(32px)';
 		}else if (!self._inputPhone.classList.contains('blur')) {
-			
+
 			var regV = /\+38\s\((\d){3}\)\s(\d){3}-(\d){4}/i;
 			var result = self._inputPhone.value.match(regV);
 			if (!result){
@@ -86,7 +93,7 @@ FormBuy.prototype._addFormListeners = function(){
 			self._inputMail.classList.add('blur');
 			self._formDiv.querySelector('#labelEmail').style.transform = 'translateY(32px)';
 		}else if (!self._inputMail.classList.contains('blur')){
-			
+
 			var regV = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
 			var result = self._inputMail.value.match(regV);
 			if (!result){
@@ -120,6 +127,7 @@ FormBuy.prototype._addFormListeners = function(){
 			self._formDiv.querySelector('#labelName').style.transform = 'translateY(32px)';
 		}
 	});
+
 //-----------------------------------------------------------------------------------------------------
 
 	this._buttonSubmit.addEventListener('click', function (event) {
@@ -131,7 +139,7 @@ FormBuy.prototype._addFormListeners = function(){
 }
 
 FormBuy.prototype._sendInfoToPhp = function(phone, email, name){
-	var goodsArray = window.app.basket.getElementsFromStorage();
+	var goodsArray = basket.getElementsFromStorage();
 	var contacts = [phone, email, name];
 	$.ajax({
 		 	type: "POST",
@@ -144,15 +152,14 @@ FormBuy.prototype._sendInfoToPhp = function(phone, email, name){
 		    });
 };
 
+
+
 FormBuy.prototype._showMessege = function(data){
 	if (data === 'success'){
-		window.app.basket.setElementsInStorage([]);
-		window.app.basket.goodsInBasketArray = [];
-		window.app.thankYou.render('success');
+		basket.setElementsInStorage([]);
+		basket.goodsInBasketArray = [];
+		thankYou.render('success');
 	}else{
-		window.app.thankYou.render('fail');
+		thankYou.render('fail');
 	}
-};
-
- window.app = window.app || {};
- window.app.FormBuy = window.app.FormBuy || FormBuy;
+}
